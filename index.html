@@ -1,0 +1,679 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>SEM Cheatsheet</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="623aa000-e816-4b2d-b062-75d7e98f7d50" class="page sans"><header><h1 class="page-title">SEM Cheatsheet</h1><p class="page-description"></p></header><div class="page-body"><p id="9a93cb69-3dc7-4d7b-bb54-a2ad8578a771" class="">Module 1</p><table id="a07888e4-8849-48e6-8dd7-a955f367ee38" class="simple-table"><tbody><tr id="248f8606-4df5-4c55-acaf-39189e9f80ba"><td id="eaiX" class="" style="width:145px">Topic</td><td id="NPBC" class="" style="width:241px">Short Answer</td><td id="zdJo" class="" style="width:769px">Points</td></tr><tr id="212a99c9-237f-48d9-bf34-c3d49fcc7de1"><td id="eaiX" class="" style="width:145px">Hacking</td><td id="NPBC" class="" style="width:241px">Identifying and exploiting weaknesses in computer systems or networks, often for unauthorized access and data manipulation. Originally a term for creative problem-solving at MIT, hacking has evolved into a negative association with cybercrime</td><td id="zdJo" class="" style="width:769px">Web App Hacking (Exploiting cross-site scripting)<br/>Wireless Network Hacking (Wardriving for unprotected networks)<br/>System Hacking (Compromising for data theft)<br/>Web Server Hacking (Attacking servers with DoS)<br/>Network Hacking (Unauthorized access with DoS attacks)<br/></td></tr><tr id="94ac23f8-c007-4d3f-bc9a-aa49cbe6ca60"><td id="eaiX" class="" style="width:145px">Myths</td><td id="NPBC" class="" style="width:241px"></td><td id="zdJo" class="" style="width:769px">1. All hackers are malicious criminals.<br/>2. Hackers can instantly hack everything.<br/>3. Ones and zeros on the hacker&#x27;s screen.<br/>4. All hackers are expert tech geniuses.<br/>5. Hackers, lone wolves in cool hoodies.<br/>6. The deep web is illegal and hacker-filled.<br/>7. Hackers only attack huge companies.<br/>8. Same malware can hack all systems.<br/>9. Hackers can easily guess any password.<br/>10. Hackers read lots of books.<br/></td></tr><tr id="a2192cc6-174b-4e19-bf9f-5b112f27befa"><td id="eaiX" class="" style="width:145px">Hacker</td><td id="NPBC" class="" style="width:241px">Someone who breaks into computer systems for various reasons, such as installing malware, stealing or destroying data, or testing software vulnerabilities for ethical reasons.</td><td id="zdJo" class="" style="width:769px">1. White Hat Hackers: Certified cybersecurity pros.<br/>2. Black Hat Hackers: Malicious unauthorized access.<br/>3. Gray Hat Hackers: Uncertified, mixed intentions.<br/>4. Script Kiddies: Amateurs using pre-written scripts.<br/>5. Green Hat Hackers: Learning, aspiring hackers.<br/>6. Blue Hat Hackers: Similar to Script Kiddies.<br/>7. Red Hat Hackers: Aggressive counter-attacks.<br/>8. State/Nation Sponsored Hackers: Govt-appointed, gather info.<br/>9. Hacktivist: Pose as activists, target websites.<br/>10. Malicious Insider/Whistleblower: Expose info within organizations.<br/></td></tr><tr id="2ddd8d07-f0e2-42a9-98e7-1f12f283b379"><td id="eaiX" class="" style="width:145px">Motives for Hacking</td><td id="NPBC" class="" style="width:241px">- <strong>Financial Gains:<br/><br/></strong>Misusing Data<br/>Selling Data on the Dark Web<br/>Blackmailing Victims<br/>Selling Malware<br/>Psychological Manipulation<br/>- <br/><strong>Political Agendas:</strong><br/>State-Sponsored Cyber-Attacks<br/>Stealing Sensitive Data<br/>Manipulating Elections<br/>Interfering with Documents<br/>Affecting Relationships<br/></td><td id="zdJo" class="" style="width:769px">- Corporate Espionage:<br/>Stealing Confidential Information<br/>Attacking Rival Companies<br/>Leaking Customer Data<br/>Crashing Competitors&#x27; Websites<br/>- Proving a Point (Hacktivist):<br/>Expressing Views<br/>Examples: U.S. Federal Depository Library Program Attack, Ashley Madison Hack<br/></td></tr><tr id="b14b7863-656f-4f97-a6d5-1eb90243139f"><td id="eaiX" class="" style="width:145px"></td><td id="NPBC" class="" style="width:241px">- <strong>Taking Personal Revenge:<br/><br/></strong>Harassing Targets<br/>Locking Devices<br/>Doxxing<br/>Spam and Phishing Attacks<br/>Hacking Profiles and Email Accounts<br/></td><td id="zdJo" class="" style="width:769px">- Mitigating Cyber Threats:<br/>White Hat Hackers (Ethical Hackers)<br/>Finding and Fixing Vulnerabilities<br/>Developing Security Software<br/>Educating Users<br/>Red Hat Hackers<br/>Targeting Other Hackers<br/></td></tr><tr id="c10f012d-81ec-47a4-9b70-60cf2851ea72"><td id="eaiX" class="" style="width:145px">Ethical Hacking</td><td id="NPBC" class="" style="width:241px">Authorized practice to detect vulnerabilities in systems and networks.</td><td id="zdJo" class="" style="width:769px">Ethical hackers defend systems legally with certified expertise. Certified Ethical Hacker (CEH) validates skills.</td></tr><tr id="305b7aa8-a597-488d-8e4f-7f3e651776a0"><td id="eaiX" class="" style="width:145px"></td><td id="NPBC" class="" style="width:241px">Things to be done when you think you are hacked</td><td id="zdJo" class="" style="width:769px">Disconnect from the Internet<br/>Activate Firewall<br/>Change passwords<br/>Scan for Malware<br/>Check System Logs<br/>Notify Relevant Parties<br/>Update Security Software<br/>Investigate and Remediate<br/>Implement Two-Factor Authentication<br/>Monitor Financial Transactions<br/>Consult with Professionals<br/>Educate Yourself<br/></td></tr><tr id="df940419-dba9-43fc-92bb-20a54ffe2b14"><td id="eaiX" class="" style="width:145px">Cyber Security Overview</td><td id="NPBC" class="" style="width:241px">Safeguarding systems, networks, and data from cyber-attacks using technologies and controls. </td><td id="zdJo" class="" style="width:769px">1. Critical Infrastructure: Protects SCADA systems per NIS Regulations.<br/>2. Network Security: Secures networks, servers, and related components.<br/>3. Cloud Security: Safeguards data, applications, and Cloud infrastructure.<br/>4. IoT Security: Ensures safety of IoT devices and networks.<br/>5. Application Security: Addresses vulnerabilities in software development.<br/><br/></td></tr><tr id="38a4234d-f15e-49c3-be20-f50516df8954"><td id="eaiX" class="" style="width:145px"></td><td id="NPBC" class="" style="width:241px">Importance</td><td id="zdJo" class="" style="width:769px">1. Costs of Breaches: Lead to fines and reputational damage.<br/>2. Sophisticated Attacks: Evolving tactics, including social engineering and malware.<br/>3. Board-Level Focus: New regulations demand heightened oversight.<br/>4. Cyber-Crime Impact: Global annual loss exceeds $1 trillion.<br/></td></tr><tr id="acf6738a-c134-4ab2-8ae6-4f851bb6a7f2"><td id="eaiX" class="" style="width:145px">Types of cyber threats</td><td id="NPBC" class="" style="width:241px"><strong>Malware Attack:</strong> Disrupts or damages computers using malicious software.<br/>Types of Malware:<br/></td><td id="zdJo" class="" style="width:769px">1. Virus: Self-replicating program infecting files.<br/>2. Trojan: Disguised as legitimate software, causing damage or collecting data.<br/>3. Worm: Self-replicating malware spreading to other computers.<br/>4. Spyware: Secretly records user activities, capturing sensitive information.<br/>5. Ransomware: Locks user&#x27;s files, demanding a ransom.<br/>6. Adware: Advertising software spreading malware.<br/>7. Botnets: Networks of infected computers used by cybercriminals.<br/></td></tr><tr id="644e66af-e17d-4698-be0d-dbdf0c82e177"><td id="eaiX" class="" style="width:145px"></td><td id="NPBC" class="" style="width:241px"></td><td id="zdJo" class="" style="width:769px">1. SQL Injection: Exploits database vulnerabilities, stealing data by injecting malicious code.<br/>2. Phishing Attack: Deceptive emails trick victims into providing sensitive information, often targeting credit card data.<br/>3. Man-in-the-Middle: Intercepts communication between individuals on unsecure networks, stealing data flow.<br/>4. Denial-of-Service: Overwhelms networks and servers with traffic, rendering systems unusable.<br/></td></tr><tr id="bc91c1d6-c994-4e5a-aae0-89bfad5bc6d2"><td id="eaiX" class="" style="width:145px">Cyber Security Challenges</td><td id="NPBC" class="" style="width:241px"></td><td id="zdJo" class="" style="width:769px">1. Ransomware: Demands ransom for data access.<br/>2. IoT Risks: Growing security challenges.<br/>3. Cloud Concerns: Increased data theft worries.<br/>4. Phishing: Social engineering steals data.<br/>5. Blockchain Threats: Compromise data and operations.<br/>6. Software Vulnerabilities: Risks from unpatched software.<br/>7. ML and AI Exploitation: Tech used for cyber threats.<br/>8. BYOD Challenges: Personal device use poses gaps.<br/>9. Insider Threats: Internal risks from data leaks.<br/>10. Outdated Hardware Risks: Exposes to cyberattacks due to compatibility issues.<br/></td></tr><tr id="c4d90a72-4788-41e2-83e4-e8195ccf289c"><td id="eaiX" class="" style="width:145px">Forensics: Electronic data as crime evidence, aiming to trace &amp; prosecute culprits.</td><td id="NPBC" class="" style="width:241px">Types</td><td id="zdJo" class="" style="width:769px">1. Network Forensics: Monitors and analyzes network traffic.<br/>2. Email Forensics: Examines criminal emails and recovers threads.<br/>3. Malware Forensics: Investigates hacking crimes by analyzing malware.<br/>4. Memory Forensics: Collects data from memory for retrieval.<br/>5. Mobile Phone Forensics: Analyzes data from mobile phones.<br/>6. Database Forensics: Examines and analyzes data from databases.<br/>7. Disk Forensics: Extracts data from storage media.<br/></td></tr><tr id="93e937bc-6893-4862-abf9-7077e5d6cca5"><td id="eaiX" class="" style="width:145px"></td><td id="NPBC" class="" style="width:241px">Importance</td><td id="zdJo" class="" style="width:769px">• Collects digital evidence for criminal tracing.<br/>• Extracts valuable data stored in electronic equipment.<br/>• Assists innocent individuals in proving their innocence.<br/>• Used in solving digital and real-world crimes.<br/>• Aids businesses in tracking system breaches and identifying attackers.<br/></td></tr><tr id="f8605f8e-06dc-4417-a9e9-52d145d5baad"><td id="eaiX" class="" style="width:145px"></td><td id="NPBC" class="" style="width:241px"><strong>Capabilities:</strong><br/><br/></td><td id="zdJo" class="" style="width:769px">• Recovers deleted files, chat logs, emails.<br/>• Retrieves deleted SMS, phone calls.<br/>• Captures recorded audio of phone conversations.<br/>• Determines user activity on systems.<br/>• Identifies program usage by specific users.<br/></td></tr><tr id="c7bbc420-0518-4931-9407-a2f88e8cbef4"><td id="eaiX" class="" style="width:145px">Communication Technology</td><td id="NPBC" class="" style="width:241px">Exchange of information through different mediums.</td><td id="zdJo" class="" style="width:769px">1. Telecommunication<br/>2. Wireless Communication<br/></td></tr><tr id="21dd11e1-28de-41e6-97d9-3700261eaa88"><td id="eaiX" class="" style="width:145px">Telecommunication</td><td id="NPBC" class="" style="width:241px">Technique of transmission of information from one location to<br/>another by electromagnetic means. such as voice, text, pictures, etc<br/></td><td id="zdJo" class="" style="width:769px"><strong>Hardware:</strong> Computer systems and modems.<br/><br/><strong>Software:</strong> Controls computer programs.<br/><br/><strong>Media:</strong> Communication outlet (wired or wireless).<br/><br/><strong>Networking:</strong> Technology connecting various computer systems.<br/><br/><strong>Protocols:</strong> Rules governing information &amp; communication.</td></tr><tr id="79c5d8ad-c994-468c-bb5a-e4fa89028ae0"><td id="eaiX" class="" style="width:145px">Wireless Communication</td><td id="NPBC" class="" style="width:241px">technique of transmitting the information or power between two<br/>or more points, which are actually not connected with the physical wire/conductor.<br/></td><td id="zdJo" class="" style="width:769px"> Alexander Graham Bell, Charles Summer Tainter (1880) &quot;photophone,&quot; conducting audio conversations wirelessly over modulated light beams (electromagnetic waves). <span style="border-bottom:0.05em solid">radio waves and microwave transmission.</span></td></tr><tr id="8d1eea0a-4f07-43e7-96aa-64fb69d6e80b"><td id="eaiX" class="" style="width:145px">Internet</td><td id="NPBC" class="" style="width:241px">Widespread interconnected network of computers<br/>and electronic devices(that support Internet).<br/></td><td id="zdJo" class="" style="width:769px">creates a communication medium to share and get information online. If your device is connected to the Internet then only you will be able to access all the applications, websites, social media apps, and many more services.</td></tr><tr id="2749a61d-5a7e-4121-9f44-8608f2fe3c88"><td id="eaiX" class="" style="width:145px"></td><td id="NPBC" class="" style="width:241px">History of the Internet</td><td id="zdJo" class="" style="width:769px">1960 with the creation of the first working model called<br/>ARPANET (Advanced Research Projects Agency). Uses packet<br/>switching to communicate multiple computer systems under a single network. October 1969, using ARPANET first message was transferred<br/></td></tr><tr id="b22563aa-17d1-4aab-b2a7-46d6ccb4e1fd"><td id="eaiX" class="" style="width:145px"></td><td id="NPBC" class="" style="width:241px">World Wide Web (WWW)</td><td id="zdJo" class="" style="width:769px">Collection of all the web pages, and web documents that we can see on the Internet by searching their URLs (Uniform Resource Locator) on the Internet. Timothy Berner’s Lee in 1989</td></tr><tr id="f4de646b-2942-475f-b499-4e5776dfa4e4"><td id="eaiX" class="" style="width:145px"></td><td id="NPBC" class="" style="width:241px">Advantages</td><td id="zdJo" class="" style="width:769px">1. Online Banking and Transactions<br/>2. Education, Online Jobs, Freelancing<br/>3. Entertainment<br/>4. New Job Roles<br/>5. Best Communication Medium<br/>6. Comfort to Humans<br/>7. GPS Tracking and Google Maps<br/></td></tr><tr id="74efb97d-2a26-4efc-af18-501f45ac413b"><td id="eaiX" class="" style="width:145px"></td><td id="NPBC" class="" style="width:241px">Disadvantages</td><td id="zdJo" class="" style="width:769px">1. Time Wastage<br/>2. Bad Impacts on Health<br/>3. Cyber Crimes<br/>4. Effects on Children<br/>5. Bullying and Spreading Negativity<br/></td></tr><tr id="b2f00b61-e244-4b58-b33d-1296415c4ace"><td id="eaiX" class="" style="width:145px">Internet Governance</td><td id="NPBC" class="" style="width:241px">Coordinating rules, policies, standards, and practices.<br/>Unification of information and communication through common protocols. <br/></td><td id="zdJo" class="" style="width:769px">Global standardization of data communication protocols (IP, TCP, UDP, DNS, BGP). Compatibility and interoperability of digital devices, data, applications, and services.</td></tr><tr id="4ebe9f71-6e73-4c33-ab3b-05f12c780540"><td id="eaiX" class="" style="width:145px">Policy Topics in Internet Governance</td><td id="NPBC" class="" style="width:241px">ICANN(Internet Corporation for Assigned Names and Numbers) Expanded to embrace a number of other areas of policy</td><td id="zdJo" class="" style="width:769px">1. Cybersecurity<br/>2. Digital Trade<br/>3. Freedom of Expression Online<br/>4. Privacy &amp; Surveillance<br/>5. Internet Of Things<br/>6. IG Institutions<br/>7. Internet Identifiers<br/>8. Geopolitics of IG<br/></td></tr><tr id="3f8214d7-dfef-49ed-b6ae-fc3b62d15ecb"><td id="eaiX" class="" style="width:145px"></td><td id="NPBC" class="" style="width:241px"></td><td id="zdJo" class="" style="width:769px">Major objectives IG, include academic courses, research, events, exchange programs, and advocacy on Internet Governance issues.</td></tr><tr id="07b8d871-42bb-4cd9-a53c-15ad6d1bf0fc"><td id="eaiX" class="" style="width:145px">Internet Society (ISOC)</td><td id="NPBC" class="" style="width:241px">Professional membership society advocating Internet use and development globally.</td><td id="zdJo" class="" style="width:769px">Coordinates groups like IETF, IAB, and IESG for Internet infrastructure.</td></tr><tr id="8f490f21-af90-4162-a9d1-966a50e458a2"><td id="eaiX" class="" style="width:145px"></td><td id="NPBC" class="" style="width:241px">Addresses diverse areas</td><td id="zdJo" class="" style="width:769px">Implements Internet standards.<br/>Harmonizes global policies.<br/>Contributes to administrative processes.<br/>Leads education and research.<br/>Archives and shares Internet history.<br/>Supports developing countries&#x27; infrastructure.<br/></td></tr></tbody></table><table id="eb95c35b-3898-4a49-8ac6-eb048058799d" class="simple-table"><tbody><tr id="9ad7379e-1f3a-4731-855f-7860e32cf227"><td id="qzjq" class="" style="width:145.15625px">Year</td><td id="b~=?" class="" style="width:493px"><strong>The INDIAN cyberspace</strong></td></tr><tr id="adeb0cab-5e9b-4a52-ba6d-95d9a8428fd1"><td id="qzjq" class="" style="width:145.15625px">1975</td><td id="b~=?" class="" style="width:493px">NIC established for govt IT solutions</td></tr><tr id="840f66ed-caec-4e4d-8523-89803dd91ebf"><td id="qzjq" class="" style="width:145.15625px">1986-1988</td><td id="b~=?" class="" style="width:493px">INDONET, NICNET, ERNET networks created</td></tr><tr id="ad456574-c6b1-43e4-99f5-950bad5535c4"><td id="qzjq" class="" style="width:145.15625px"></td><td id="b~=?" class="" style="width:493px">- INDONET: Connects IBM mainframes</td></tr><tr id="af40cfe8-b5aa-4e1d-b048-4b232829c469"><td id="qzjq" class="" style="width:145.15625px"></td><td id="b~=?" class="" style="width:493px">- NICNET: Nationwide VSAT for govt connectivity</td></tr><tr id="ba689922-9304-404d-bb7f-d4e6c82504fc"><td id="qzjq" class="" style="width:145.15625px"></td><td id="b~=?" class="" style="width:493px">- ERNET: Academic network</td></tr><tr id="0774ed83-490c-4cbd-b9fa-01766b64128f"><td id="qzjq" class="" style="width:145.15625px">1998</td><td id="b~=?" class="" style="width:493px">New Internet Policy allows multiple ISPs</td></tr><tr id="704fda66-bcb8-40e6-b9bf-128df34bb197"><td id="qzjq" class="" style="width:145.15625px">Internet Users</td><td id="b~=?" class="" style="width:493px">Grew from 1.4M (1999) to 150M (Dec 2012)</td></tr><tr id="37fa5976-acd1-40d1-8d3f-e076f916a75b"><td id="qzjq" class="" style="width:145.15625px">Growth Factors</td><td id="b~=?" class="" style="width:493px">Mobile and tablet Internet access</td></tr><tr id="489e5718-ea86-4487-a4f6-9923c0fdabaf"><td id="qzjq" class="" style="width:145.15625px">Government Push</td><td id="b~=?" class="" style="width:493px">Increase broadband penetration (6%)</td></tr></tbody></table><table id="235954cb-6e1c-41df-9ef0-fbdf34fca14f" class="simple-table"><tbody><tr id="45818b18-4e55-46f3-91d8-1ab3c60a0837"><td id="n?Y\" class="" style="width:184px"><strong>Cyber Law in India</strong></td><td id="oRn\" class="" style="width:572px"><strong>Key Points</strong></td></tr><tr id="12745a98-e4dc-4d2c-b7cb-232e75aa5517"><td id="n?Y\" class="" style="width:184px"><strong>IT Act, 2000</strong></td><td id="oRn\" class="" style="width:572px">Governs cyber law, recognizes ecommerce transactions, allows electronic filing.</td></tr><tr id="d39657a7-64c1-4e3b-89cd-de896695e435"><td id="n?Y\" class="" style="width:184px"><strong>Electronic Signatures</strong></td><td id="oRn\" class="" style="width:572px">Digital Signatures authenticate records, replace physical signatures.</td></tr><tr id="176c5039-c63e-4f00-acce-ba6f24b33ae0"><td id="n?Y\" class="" style="width:184px"><strong>Electronic Governance</strong></td><td id="oRn\" class="" style="width:572px">Facilitates compliance with laws, allows Digital Signatures in place of physical ones.</td></tr><tr id="a56b759f-d63a-4f1b-b2f1-9321f146c948"><td id="n?Y\" class="" style="width:184px"><strong>Certifying Authorities</strong></td><td id="oRn\" class="" style="width:572px">Central Government appoints Controller for supervision. Certifying Authorities issue Digital Signatures.</td></tr><tr id="5add8949-78c3-45fa-bd90-654036a7f583"><td id="n?Y\" class="" style="width:184px"><strong>Penalties</strong></td><td id="oRn\" class="" style="width:572px">Unauthorized access, data download may lead to compensation.</td></tr><tr id="cb01faad-17b3-45f5-a5b3-b705cad9f1eb"><td id="n?Y\" class="" style="width:184px"><strong>Appellate Tribunal</strong></td><td id="oRn\" class="" style="width:572px">Telecom Disputes Settlement and Appellate Tribunal serves as Appellate Tribunal for the Act.</td></tr><tr id="94b728ff-a317-40d4-995d-2bc95128f2f5"><td id="n?Y\" class="" style="width:184px"><strong>Offences</strong></td><td id="oRn\" class="" style="width:572px">Tampering with documents or hacking carries imprisonment or fine.</td></tr><tr id="42806357-dcaf-42e6-97aa-a8efb1c5d5f6"><td id="n?Y\" class="" style="width:184px"></td><td id="oRn\" class="" style="width:572px">Publishing obscene information electronically is punishable with imprisonment and fines.</td></tr><tr id="46b1c0e0-0953-4b80-b048-e41c1cd8850d"><td id="n?Y\" class="" style="width:184px"></td><td id="oRn\" class="" style="width:572px">2015 Amendment removed Section 66A due to freedom of speech and expression violations.</td></tr></tbody></table><table id="813cd6e7-df41-4739-a879-c44e1a40ab01" class="simple-table"><tbody><tr id="a4460713-fc2a-4e85-a58e-dde48b296af3"><td id="~G~t" class="" style="width:253.40625px">World Wide Web</td><td id="R&gt;X`" class="" style="width:317px">Internet</td></tr><tr id="8542d2b3-4c8d-4f3a-ae89-d4014d40f048"><td id="~G~t" class="" style="width:253.40625px">Web pages have specific URLs.</td><td id="R&gt;X`" class="" style="width:317px">Global network accessed by the Web.</td></tr><tr id="ab2437b1-0833-49f4-9f17-19133f132357"><td id="~G~t" class="" style="width:253.40625px">Web is a service.</td><td id="R&gt;X`" class="" style="width:317px">Internet is infrastructure.</td></tr><tr id="b319d215-587b-456e-aa34-451449a1a7cd"><td id="~G~t" class="" style="width:253.40625px">Web is a subset of the Internet.</td><td id="R&gt;X`" class="" style="width:317px">Internet is the superset of the Web.</td></tr><tr id="2564e8df-f408-4e32-a275-998823fe4862"><td id="~G~t" class="" style="width:253.40625px">Web is software-oriented.</td><td id="R&gt;X`" class="" style="width:317px">Internet is hardware-oriented.</td></tr><tr id="786a63a1-3b3f-4d64-a11e-15929e6d08f8"><td id="~G~t" class="" style="width:253.40625px">Web uses HTTP.</td><td id="R&gt;X`" class="" style="width:317px">Internet uses IP Addresses.</td></tr></tbody></table><table id="40c64fa7-907a-4db6-942a-ff980bc679fc" class="simple-table"><tbody><tr id="ae036373-2aad-420c-8218-2b34cdb1a46f"><td id="dEjk" class="" style="width:91px"><strong>Cyber </strong></td><td id="TgTi" class="" style="width:486px"><strong>Description</strong></td><td id="ZC{Z" class="" style="width:148px"><strong>Examples</strong></td></tr><tr id="ac0e30ca-71ec-4e35-99f1-09c7e62426ba"><td id="dEjk" class="" style="width:91px"><strong>Terrorists</strong></td><td id="TgTi" class="" style="width:486px">State or non-state actors using cyber attacks, including transnational groups.</td><td id="ZC{Z" class="" style="width:148px">Anonymous</td></tr><tr id="813bdd14-19c0-4e93-86fb-9d30715cd84b"><td id="dEjk" class="" style="width:91px"><strong>Spies</strong></td><td id="TgTi" class="" style="width:486px">Steal information for advantage, often directed by foreign entities.</td><td id="ZC{Z" class="" style="width:148px">APT29 (Cozy Bear)</td></tr><tr id="f9012831-da0e-4a1a-bd48-3b4ddfaef0dc"><td id="dEjk" class="" style="width:91px"><strong>Thieves</strong></td><td id="TgTi" class="" style="width:486px">Engage in illegal attacks for money, e.g., stealing and selling credit card.</td><td id="ZC{Z" class="" style="width:148px">Magecart</td></tr><tr id="9b45ed3f-c2b8-411b-920d-b46e9c410a9d"><td id="dEjk" class="" style="width:91px"><strong>Warriors</strong></td><td id="TgTi" class="" style="width:486px">Nation-state agents undertaking cyberattacks, may or may not act on behalf of the government.</td><td id="ZC{Z" class="" style="width:148px">Stuxnet</td></tr><tr id="c46ded1b-4667-4f9e-b76a-2ddd24f3224f"><td id="dEjk" class="" style="width:91px"><strong>Activists</strong></td><td id="TgTi" class="" style="width:486px">Perform attacks for non-monetary reasons, e.g., personal challenges, hacktivist activities.</td><td id="ZC{Z" class="" style="width:148px">Lizard Squad</td></tr></tbody></table><table id="bc7f31f9-8983-4322-859e-b2cbe7556d71" class="simple-table"><tbody><tr id="250e88d6-836a-4d23-acad-42c7e10ef80a"><td id="Ov}G" class="" style="width:38px">No</td><td id="IomP" class="" style="width:362px">Hacking</td><td id="OSXC" class="" style="width:308px">Ethical Hacking</td></tr><tr id="e49a056c-ac41-487e-9040-65854fe3d9fb"><td id="Ov}G" class="" style="width:38px">1.</td><td id="IomP" class="" style="width:362px">Steals info illegally for crime.</td><td id="OSXC" class="" style="width:308px">Reduces vulnerabilities legally.</td></tr><tr id="74771939-2421-4b54-b6a6-9a4f1bd98831"><td id="Ov}G" class="" style="width:38px">2.</td><td id="IomP" class="" style="width:362px">Illegal and criminal.</td><td id="OSXC" class="" style="width:308px">Legal and authorized.</td></tr><tr id="e4597a8e-a32a-495f-afa8-b22517e4a0aa"><td id="Ov}G" class="" style="width:38px">3.</td><td id="IomP" class="" style="width:362px">Performed by black-hat hackers.</td><td id="OSXC" class="" style="width:308px">Done by white-hat hackers.</td></tr><tr id="a4c144ac-9c4c-4035-8c2f-e24c4b46580f"><td id="Ov}G" class="" style="width:38px">4.</td><td id="IomP" class="" style="width:362px">Accesses networks illegally, compromising security.</td><td id="OSXC" class="" style="width:308px">Creates firewalls for security.</td></tr><tr id="74a7d2c4-face-4b4f-91cc-bed20aba5b94"><td id="Ov}G" class="" style="width:38px">5.</td><td id="IomP" class="" style="width:362px">Motivated by personal gain.</td><td id="OSXC" class="" style="width:308px">Collaborates with agencies/companies.</td></tr></tbody></table><table id="97bcd12e-c185-4297-8468-4d9021c25ac8" class="simple-table"><tbody><tr id="50b075f0-b342-4908-9a3e-6e12c290b69e"><td id="IcV_" class="" style="width:326.99998474121094px"><strong>Advantages of the Internet</strong></td><td id="Ld\u" class="" style="width:417.99998474121094px"><strong>Disadvantages of the Internet</strong></td></tr><tr id="4f02c441-3b16-415e-87f5-cef6d23a8e95"><td id="IcV_" class="" style="width:326.99998474121094px">1. Online Banking and Transactions</td><td id="Ld\u" class="" style="width:417.99998474121094px">1. Time Wastage</td></tr><tr id="8f38e831-928c-4a27-b710-1926580eb0d8"><td id="IcV_" class="" style="width:326.99998474121094px">2. Education, Online Jobs, Freelancing</td><td id="Ld\u" class="" style="width:417.99998474121094px">2. Bad Impacts on Health</td></tr><tr id="c2d51aca-7610-4dde-ae0d-69eab769a053"><td id="IcV_" class="" style="width:326.99998474121094px">3. Entertainment</td><td id="Ld\u" class="" style="width:417.99998474121094px">3. Cyber Crimes</td></tr><tr id="cb431b2e-7631-437a-9ecd-279ce1f1e4d5"><td id="IcV_" class="" style="width:326.99998474121094px">4. New Job Roles</td><td id="Ld\u" class="" style="width:417.99998474121094px">4. Effects on Children</td></tr><tr id="6b099c11-da49-424b-82d0-3efd4ae8c93b"><td id="IcV_" class="" style="width:326.99998474121094px">5. Best Communication Medium</td><td id="Ld\u" class="" style="width:417.99998474121094px">5. Bullying and Spreading Negativity</td></tr><tr id="c3f45b48-5408-4b0c-a7bc-7aa66763f8af"><td id="IcV_" class="" style="width:326.99998474121094px">6. Comfort to humans</td><td id="Ld\u" class="" style="width:417.99998474121094px">6. Privacy Concerns</td></tr><tr id="b5a25a10-19ed-45a5-b3b4-7e289294065e"><td id="IcV_" class="" style="width:326.99998474121094px">7. GPS Tracking and Google Maps</td><td id="Ld\u" class="" style="width:417.99998474121094px">7. Information Overload</td></tr></tbody></table><table id="040ffb70-e002-4eef-8871-a8385a2b2de6" class="simple-table"><tbody><tr id="5945f866-0f19-471d-957f-815ec699d8eb"><td id="sxy[" class="" style="width:64px"><strong>Year</strong></td><td id="mjzV" class="" style="width:602.9999847412109px"><strong>Recent Cyber-attacks and Data breaches in India</strong></td></tr><tr id="968f763d-8341-47d2-bce7-2966a60eebab"><td id="sxy[" class="" style="width:64px">2019</td><td id="mjzV" class="" style="width:602.9999847412109px">Police Exam Data Spill: 50,000+ attendees&#x27; data compromised.</td></tr><tr id="4fc386e7-c9dc-4d15-beb7-9828292d6d63"><td id="sxy[" class="" style="width:64px">2020</td><td id="mjzV" class="" style="width:602.9999847412109px">Justpay Data Leak: 35 million user accounts hacked, data sold.</td></tr><tr id="3f0b2669-aa00-49c4-af3d-f61f82e21be1"><td id="sxy[" class="" style="width:64px">2021</td><td id="mjzV" class="" style="width:602.9999847412109px">Air India Data Breach: 4.5 million customer info, no credit cards.</td></tr><tr id="87240cbf-dd75-4c84-9d22-631d1bc37961"><td id="sxy[" class="" style="width:64px">2021</td><td id="mjzV" class="" style="width:602.9999847412109px">CAT Data Breach: 190,000 applicants&#x27; data exposed and sold.</td></tr><tr id="0e51c1a7-cf29-4ac4-8fe2-87eeceba4595"><td id="sxy[" class="" style="width:64px">2021</td><td id="mjzV" class="" style="width:602.9999847412109px">Upstox Data Leak: 2.5 million customers&#x27; KYC info breached.</td></tr><tr id="96c14394-27ef-44c1-bceb-f2fce06bce30"><td id="sxy[" class="" style="width:64px">2021</td><td id="mjzV" class="" style="width:602.9999847412109px">Domino&#x27;s India Data Theft: 13 TB data, no credit card data.</td></tr><tr id="923d433e-2a69-41d4-9598-314b065c6b1a"><td id="sxy[" class="" style="width:64px">2021</td><td id="mjzV" class="" style="width:602.9999847412109px">Covid-19 Info Breach: 1500 citizens&#x27; data exposed.</td></tr><tr id="536bc598-0d93-441f-99b2-185a2c9b6db2"><td id="sxy[" class="" style="width:64px">2023</td><td id="mjzV" class="" style="width:602.9999847412109px">Cyberabad Data Theft: Massive breach, arrests.</td></tr><tr id="bf1c9397-fb62-4a9f-b334-93ad86a6f49d"><td id="sxy[" class="" style="width:64px">2023</td><td id="mjzV" class="" style="width:602.9999847412109px">Covid-19 Info Breach: 80,000 patient records compromised.</td></tr></tbody></table><hr id="cc758189-0406-402d-a8c8-5806f4e8418f"/><p id="ea7b56a5-571c-4dc5-8bc9-b9ac23fb624a" class="">Module 2</p><table id="97932220-18c7-435d-9ca0-b70bd43036d6" class="simple-table"><tbody><tr id="cf18e66c-2883-44b2-8476-5bcbe41ea131"><td id="cHlF" class="" style="width:130px">Topic</td><td id="W}rJ" class="" style="width:286px">Short Answer</td><td id="WTV?" class="" style="width:690px">Points</td></tr><tr id="a9c2bdec-291c-4d03-b8f8-ea974a84f0bb"><td id="cHlF" class="" style="width:130px">Cybercrime</td><td id="W}rJ" class="" style="width:286px">Cybercrime involves criminal activities that target or utilize computers, networks, or connected devices. Perpetrators, often hackers, typically seek financial gain, but motives can also be political or personal. Both individuals and organized groups engage in cybercrime, ranging from highly skilled experts to novice hackers.</td><td id="WTV?" class="" style="width:690px">Email fraud<br/>Identity theftmo<br/>Financial data breaches<br/>Ransomware<br/>Cryptojacking<br/>Cyberespionage<br/>Network compromise<br/>Copyright infringement<br/>Illegal gambling<br/>Online sale of prohibited items, including child pornography<br/></td></tr><tr id="42bb9d5d-f3ff-49b8-aeac-d5bafc24e398"><td id="cHlF" class="" style="width:130px"></td><td id="W}rJ" class="" style="width:286px">Classification of Cybercrimes: <strong>Cybercrime against</strong></td><td id="WTV?" class="" style="width:690px"><strong>Individuals</strong> (Social engineering, phishing, cyberstalking)<br/><br/><strong>Companies/Organizations</strong> (Data breaches, cyber extortion)<br/><br/><strong>Society</strong> (Financial crimes, online gambling)<br/><br/><strong>Government</strong> (Cyber terrorism, defacing government systems) |</td></tr><tr id="bac9ba4c-b349-4975-9d87-a0034fb8934e"><td id="cHlF" class="" style="width:130px"></td><td id="W}rJ" class="" style="width:286px">Common Cybercrimes</td><td id="WTV?" class="" style="width:690px">Cybercrime targeting computers and mobiles<br/>Against women and children<br/>Financial frauds<br/>Social engineering attacks<br/>Malware<br/>Ransomware<br/>Zero day and zero click attacks<br/></td></tr><tr id="e4962387-38ee-4149-bbde-410cb3f3083e"><td id="cHlF" class="" style="width:130px">Cybercrime targeting Computers</td><td id="W}rJ" class="" style="width:286px">Computers can be the target of an illegal activity, which means the attacker has to main objective to deny the owners or legal users of the system to their data</td><td id="WTV?" class="" style="width:690px">Cracking<br/>Copyright Violation<br/>Cyberbullying or Cyberstalking<br/>Creating Malware<br/>Denial of Service Attack<br/>Doxing<br/>Espionage<br/>Illegal Sales<br/>Intellectual Property Theft<br/>Salami Slicing<br/>Spamming<br/>Spoofing<br/>Unauthorized Access<br/></td></tr><tr id="2ae70fdf-41d5-4e97-90a9-fe534dc0592f"><td id="cHlF" class="" style="width:130px">Cybercrime targeting Mobiles</td><td id="W}rJ" class="" style="width:286px">Easy password theft, widespread employee usage, access to sensitive data, potential for malware and ransomware, and vulnerabilities from application use and phishing.</td><td id="WTV?" class="" style="width:690px">Identity Theft<br/>Bluebugging (Bluetooth)<br/>Vishing<br/>Smishing<br/>Phishing<br/>Malware <br/></td></tr><tr id="6f56920a-6eb8-492f-9135-ee271e558490"><td id="cHlF" class="" style="width:130px">Cybercrimes against Women</td><td id="W}rJ" class="" style="width:286px">Many miscreants use these digital tools to abuse and bully online users, especially women. Unlawful activities conducted through the internet and digital devices intending to creep into the private space of others and disturb them with objectionable content and misbehaviour.</td><td id="WTV?" class="" style="width:690px">Cyber Stalking<br/>Cyber Defamation<br/>Cyber Hacking<br/>Cyber Bullying<br/>Pornography<br/>Cyber Grooming<br/></td></tr><tr id="88ef9da5-15dd-4011-b2d2-7d0a1d089201"><td id="cHlF" class="" style="width:130px">LAW Women</td><td id="W}rJ" class="" style="width:286px">Indian Penal Code (IPC, 1860): Section 354 A, C, D</td><td id="WTV?" class="" style="width:690px">Information Technology Act, 2000: Section 66 C, E, A</td></tr><tr id="41c16a1c-6b83-43d8-bf89-0092c9d38b35"><td id="cHlF" class="" style="width:130px">Law Children</td><td id="W}rJ" class="" style="width:286px">POCSO: Section 14 1,2,3,4,5 Section 15</td><td id="WTV?" class="" style="width:690px">CCPWC</td></tr><tr id="e6693cd6-a60f-438f-acf7-eefa18a0db66"><td id="cHlF" class="" style="width:130px">Financial Frauds</td><td id="W}rJ" class="" style="width:286px">Illegal act intended to deprive you of your money for personal gains</td><td id="WTV?" class="" style="width:690px">Ponzi Schemes<br/>Pyramid Schemes<br/>Identity theft &amp; identity fraud<br/>Embezzlement<br/>Tax fraud<br/>Credit Card fraud<br/>Insurance fraud<br/>KYC fraud<br/>Phishing<br/>Advance fee scams<br/>Mortgage fraud<br/>Mass marketing fraud<br/>Bank fraud<br/>UPI<br/>Sim Swap<br/>Corporate fraud<br/></td></tr><tr id="b36dc549-3e5e-48eb-8d44-29dcbd0ed20e"><td id="cHlF" class="" style="width:130px"></td><td id="W}rJ" class="" style="width:286px">Tips to protect yourself. <strong>NOTE</strong>: Beware of shoulder surfing, Robust passwords, safe clicking.</td><td id="WTV?" class="" style="width:690px">Set transaction limits<br/>Use separate work accounts<br/>Keep software updated<br/>Avoid sharing financial info online<br/>Ignore calls for sensitive details<br/>Keep PINs confidential<br/>Verify before sharing account info<br/>Use authorized banks<br/>Stay informed on fraud<br/>Report suspicious activity<br/>Review credit card statements<br/>Use CVV only on secure sites<br/>Read contracts carefully<br/>Ignore spam and scams<br/>Install trusted antivirus<br/>Keep OTPs confidential<br/></td></tr><tr id="ee6fdcc4-b160-437c-b77d-a44a83aac58c"><td id="cHlF" class="" style="width:130px">Social Engineering Attacks</td><td id="W}rJ" class="" style="width:286px">Malicious attack which typically involves some form of psychological manipulation, specifically fooling otherwise unsuspecting users or employees into handing over confidential or sensitive data.</td><td id="WTV?" class="" style="width:690px">Phishing<br/>Pretexting<br/>Baiting<br/>Quid pro quo<br/>Tailgating<br/>CEO fraud<br/></td></tr><tr id="6aee52a7-046f-43aa-9899-38467ec750d0"><td id="cHlF" class="" style="width:130px"></td><td id="W}rJ" class="" style="width:286px">Ways to Prevent Social Engineering Attacks</td><td id="WTV?" class="" style="width:690px">Avoid opening emails from untrusted sources<br/>Be skeptical of offers<br/>Lock your laptop<br/>Purchase anti-virus protection<br/>Read privacy policy for awareness<br/>Verify urgent requests<br/>Create a risk-aware culture<br/></td></tr><tr id="ec9a4f59-bcbc-4513-a640-91a9ba224b43"><td id="cHlF" class="" style="width:130px">Malware</td><td id="W}rJ" class="" style="width:286px">malicious software, which - if able to run - can cause harm in many ways</td><td id="WTV?" class="" style="width:690px">Device lockout<br/>Data theft or encryption<br/>Device takeover for attacks<br/>Credential theft for system access<br/>Cryptocurrency mining<br/>Costly service usage (e.g., premium rate calls)<br/></td></tr><tr id="34d98658-f335-4405-be0c-838f664607af"><td id="cHlF" class="" style="width:130px">Ransomware</td><td id="W}rJ" class="" style="width:286px">type of malware that prevents you from accessing your computer (or the<br/>data that is stored on it).<br/></td><td id="WTV?" class="" style="width:690px">Computer itself may become locked, or the data on it might be stolen, deleted or encrypted. Some ransomware will also try to spread to other machines on the network.</td></tr><tr id="885c0ec9-580f-4ebd-98db-638ccd55f6cb"><td id="cHlF" class="" style="width:130px">Zero day</td><td id="W}rJ" class="" style="width:286px">Attack that occur on the same day the software, hardware or firmware flaw is detected by the manufacturer.</td><td id="WTV?" class="" style="width:690px">Zero-day exploit typically targets large organizations,  government departments, firmware, hardware devices, IoT, users having access to valuable business data.</td></tr><tr id="a4ae3853-1642-4709-8bbd-987642a5e4f4"><td id="cHlF" class="" style="width:130px"></td><td id="W}rJ" class="" style="width:286px">Discovered in 2017, Wanna Cry. Exploited a Microsoft Windows zero-day to spread ransomware globally.</td><td id="WTV?" class="" style="width:690px">Pegasus, a spyware by NSO Group, Used a zero-day in Apple&#x27;s iOS to install spyware on phones.</td></tr><tr id="b393fb0e-510e-400f-b1b6-6e3e53effd16"><td id="cHlF" class="" style="width:130px">Zero Click</td><td id="W}rJ" class="" style="width:286px">Takes advantage of vulnerabilities in software to carry out an attack<br/>without user interaction.<br/></td><td id="WTV?" class="" style="width:690px">By exploiting this vulnerability, the exploit can install malware or perform other malicious interactions on a user’s device without the target needing to click on a link, open a malicious file or take any other action.</td></tr><tr id="6e76037c-6ba6-4922-a56a-c69f78b815ab"><td id="cHlF" class="" style="width:130px"></td><td id="W}rJ" class="" style="width:286px">In 2018, A WhatsApp video message with embedded code extracted data from Bezos&#x27;s iPhone.</td><td id="WTV?" class="" style="width:690px">Project Raven (2016)<em>:</em> UAE&#x27;s unit used iMessage flaw to hack into iPhones for data extraction.</td></tr><tr id="0d26a697-9805-4157-a7de-f5ecd4614206"><td id="cHlF" class="" style="width:130px">Modus Operandi</td><td id="W}rJ" class="" style="width:286px">Acquired by any criminal for the successfulcommission of a crime. Contains: Ensure success of the crime, Protect identity, Facilitate effective escape.</td><td id="WTV?" class="" style="width:690px">Annoying Messages<br/>Offensive Calls<br/>Data Theft<br/>Identity Theft<br/>Intellectual Property Theft<br/>Financial Attack<br/>WEB Page Hacking<br/>Espionage<br/>E-mail Attacks<br/>Malware Attacks<br/>Social Engineering<br/>Obscenity &amp; Child Pornography<br/></td></tr><tr id="ed663086-9471-42f8-9244-40c948488bc8"><td id="cHlF" class="" style="width:130px">Reporting of Cybercrimes</td><td id="W}rJ" class="" style="width:286px">When filing a cyber fraud case related to online transactions, lottery scams, ATM<br/>transactions, fake calls, or internet banking, you will need to attach proof of the fraudulent transactions. Additionally, supporting evidence like bank statements, address and ID proof, and any suspicious messages or emails you have received should also be included.<br/></td><td id="WTV?" class="" style="width:690px">1. Go to <a href="https://cybercrime.gov.in/">https://cybercrime.gov.in</a>.<br/>2. Click &#x27;File a complaint.&#x27;<br/>3. Accept terms, click &#x27;Report other cybercrime.&#x27;<br/>4. Enter details, submit OTP.<br/>5. Fill cybercrime details, submit.<br/>6. Attach evidence, click &#x27;Submit.&#x27;<br/>7. Provide suspect details if available.<br/>8. Receive confirmation via email.<br/>9. For fraud cases, attach proof.<br/></td></tr><tr id="f34ab516-b581-47bc-9924-69b2452989a6"><td id="cHlF" class="" style="width:130px">Remedial and Mitigation Measures</td><td id="W}rJ" class="" style="width:286px"></td><td id="WTV?" class="" style="width:690px">Keep your software updated<br/>Enable your system firewall<br/>Use different/strong passwords<br/>Use antivirus and anti-malware software<br/>Activate your email&#x27;s anti-spam blocking feature<br/>Use 2FA for all your online services<br/>Encrypt your local hard disk<br/>Shop only from secure and well-known websites<br/>Use a WHOIS private service<br/>Use a private-secured DNS server<br/>Use a VPN<br/>Encrypt your email<br/></td></tr></tbody></table><table id="2c931fba-7c09-4f7f-a188-75aad461cc68" class="simple-table"><tbody><tr id="29bfe39f-8a94-4e8f-8fe3-9fd962da59d9"><td id="LFf\" class="" style="width:43px">No</td><td id="[vk^" class="" style="width:282px"><strong>Malware</strong></td><td id="Q@HZ" class="" style="width:294px"><strong>Ransomware</strong></td></tr><tr id="1b093149-9308-409d-a98f-24cf2951e433"><td id="LFf\" class="" style="width:43px">1.</td><td id="[vk^" class="" style="width:282px">Damaging files or code.</td><td id="Q@HZ" class="" style="width:294px">Blocks access, demands ransom.</td></tr><tr id="a64b47c8-700b-424b-a12b-7b5d0f3cbd24"><td id="LFf\" class="" style="width:43px">2.</td><td id="[vk^" class="" style="width:282px">Various malicious software types.</td><td id="Q@HZ" class="" style="width:294px">Specific malware type.</td></tr><tr id="60872cd0-bae5-4a6f-b17f-9e3b02d40a8e"><td id="LFf\" class="" style="width:43px">3.</td><td id="[vk^" class="" style="width:282px">Delivered via emails, installations, etc.</td><td id="Q@HZ" class="" style="width:294px">Spread through phishing emails.</td></tr><tr id="ed54a152-1751-4959-ade9-3453ba4a359f"><td id="LFf\" class="" style="width:43px">4.</td><td id="[vk^" class="" style="width:282px">Less harmful, removable with antivirus.</td><td id="Q@HZ" class="" style="width:294px">More harmful, often demands ransom.</td></tr><tr id="ccfb46e8-69a0-4f25-9996-edebd8a76b70"><td id="LFf\" class="" style="width:43px">5.</td><td id="[vk^" class="" style="width:282px">Includes viruses, trojans, worms, etc.</td><td id="Q@HZ" class="" style="width:294px">Two types: crypto and locker.</td></tr><tr id="e186cb8d-0fd8-450c-9bd9-c0e8f04cd096"><td id="LFf\" class="" style="width:43px">6.</td><td id="[vk^" class="" style="width:282px">Controls data, causes errors.</td><td id="Q@HZ" class="" style="width:294px">Profits by demanding payment.</td></tr></tbody></table><table id="8a66177a-e4cf-4de7-bca4-24213647a237" class="simple-table"><tbody><tr id="be77f947-1294-41b3-8206-5522124394eb"><td id="\Lw@" class=""><strong>Legal Provisions</strong></td><td id="Tos[" class="" style="width:265.7016906738281px"><strong>Explanation</strong></td></tr><tr id="39b85ca9-9b8c-4292-af73-9ddb461659af"><td id="\Lw@" class="">IPC Sections 354A, 354C, 354D</td><td id="Tos[" class="" style="width:265.7016906738281px">Punishes harassment with imprisonment and fines.</td></tr><tr id="fa7c2696-b779-41bb-8c2b-aea82536f922"><td id="\Lw@" class="">IT Act Sections 66C, 66E, 67A</td><td id="Tos[" class="" style="width:265.7016906738281px">Criminalizes online identity theft and explicit content.</td></tr><tr id="fa0b75c4-3eba-4e72-8db2-281002a8a1bd"><td id="\Lw@" class="">Cyber-crime Prevention Act of 2012</td><td id="Tos[" class="" style="width:265.7016906738281px">Prevents cybercrimes, including hacking and identity theft.</td></tr><tr id="e250dba8-6ac7-409a-80b1-42fcbe962c58"><td id="\Lw@" class="">Indecent Representation of Women (Prohibition) Ac</td><td id="Tos[" class="" style="width:265.7016906738281px">Prohibits indecent online content involving women.</td></tr></tbody></table><table id="9e2a8fc0-b601-402e-ab57-a57feff94c30" class="simple-table"><tbody><tr id="90d32c7f-ea92-4697-8596-53ed3690deeb"><td id="{POx" class=""><strong>Section</strong></td><td id="kQGq" class="" style="width:578.9999847412109px">Protection Of Children from Sexual Offenses Act (POCSO)</td></tr><tr id="25219eb0-4166-4751-bede-67989fbdda9b"><td id="{POx" class="">14(1)</td><td id="kQGq" class="" style="width:578.9999847412109px">Use of a child for pornography.</td></tr><tr id="db0dce1c-03d8-4852-9d8c-65e6a2a28434"><td id="{POx" class="">14(2)</td><td id="kQGq" class="" style="width:578.9999847412109px">Using a child for pornography while committing other offenses.</td></tr><tr id="0742ea5e-ca10-4d86-8a36-d828bcb9b04b"><td id="{POx" class="">14(3)</td><td id="kQGq" class="" style="width:578.9999847412109px">Using a child for pornography in specific circumstances.</td></tr><tr id="200a3b2d-3d42-4ef2-9902-ef99f4942a4a"><td id="{POx" class="">14(4)</td><td id="kQGq" class="" style="width:578.9999847412109px">Using a child for pornographic purposes while committing particular offenses.</td></tr><tr id="cc80656c-3ed7-4f5d-8462-2701e7662fe3"><td id="{POx" class="">14(5)</td><td id="kQGq" class="" style="width:578.9999847412109px">Using a child for pornographic purposes in specific cases.</td></tr><tr id="a5959679-4113-4576-9054-b13b6074b300"><td id="{POx" class="">15</td><td id="kQGq" class="" style="width:578.9999847412109px">Offense of storing pornographic material involving a child for commercial purposes.</td></tr></tbody></table><table id="ce154f09-089e-47af-99e4-936a90c117b4" class="simple-table"><tbody><tr id="9c3e9c6e-850f-4324-a9c0-61a894acb17d"><td id="Sxp`" class="" style="width:47px">No.</td><td id="CsuS" class="" style="width:352px">Case Title</td><td id="hbLm" class="" style="width:449px">Details</td></tr><tr id="ab1cc185-da9f-4cd0-96af-8b01a93dbc5a"><td id="Sxp`" class="" style="width:47px">1</td><td id="CsuS" class="" style="width:352px">Pune Citibank MphasiS CCenter Fraud</td><td id="hbLm" class="" style="width:449px">Ex-employees defraud Citibank; Liability for damages.</td></tr><tr id="a09bf301-15d4-47c9-b536-eda2c59e49b8"><td id="Sxp`" class="" style="width:47px">2</td><td id="CsuS" class="" style="width:352px">The Bank NSP Case</td><td id="hbLm" class="" style="width:449px">Breakup leads to fraudulent emails; Bank held liable.</td></tr><tr id="bbb6c7d2-e1a0-484b-bf6e-c97cfe01085d"><td id="Sxp`" class="" style="width:47px">3</td><td id="CsuS" class="" style="width:352px">Andhra Pradesh Tax Case</td><td id="hbLm" class="" style="width:449px">Businessman&#x27;s tax fraud exposed; Fake vouchers.</td></tr><tr id="cb478248-0fdd-4058-a4b6-605668e79aed"><td id="Sxp`" class="" style="width:47px">4</td><td id="CsuS" class="" style="width:352px"><a href="http://bazee.com/">Bazee.com</a> Case</td><td id="hbLm" class="" style="width:449px">CEO arrested for objectionable CD sales; ISP vs. Content Provider.</td></tr><tr id="164f9f47-a21b-4bc8-bfb7-b7fb49b14761"><td id="Sxp`" class="" style="width:47px">5</td><td id="CsuS" class="" style="width:352px">Cyber Attack on Cosmos Bank</td><td id="hbLm" class="" style="width:449px">Rs 94 crores drained; Global transactions affected.</td></tr><tr id="41b0319a-be77-4c9d-b24d-cf29d8aa2958"><td id="Sxp`" class="" style="width:47px">6</td><td id="CsuS" class="" style="width:352px">Tampering with Computer Source Documents</td><td id="hbLm" class="" style="width:449px">Tata Indicom employees manipulate Electronic Serial Number.</td></tr><tr id="aaf40680-4f4e-4551-85d1-340fe2709a5b"><td id="Sxp`" class="" style="width:47px">7</td><td id="CsuS" class="" style="width:352px">BSNL, Unauthorized Access</td><td id="hbLm" class="" style="width:449px">JANET hacked; Unauthorized access to BSNL database.</td></tr><tr id="6be361b2-09ec-4298-81e9-a3670aa11874"><td id="Sxp`" class="" style="width:47px">8</td><td id="CsuS" class="" style="width:352px">BPO Fraud</td><td id="hbLm" class="" style="width:449px">Call center employees gain PIN codes; Unauthorized access.</td></tr><tr id="dc69dd8c-f0b5-4196-ab92-abe658bde228"><td id="Sxp`" class="" style="width:47px">9</td><td id="CsuS" class="" style="width:352px">Bomb Hoax Mail</td><td id="hbLm" class="" style="width:449px">15-year-old sends bomb hoax email; Arrested after IP tracing.</td></tr><tr id="d57e4db1-838b-42ae-a05c-03358063bb82"><td id="Sxp`" class="" style="width:47px">10</td><td id="CsuS" class="" style="width:352px">A Look-alike Website</td><td id="hbLm" class="" style="width:449px">Nine accused run defamation campaign; Petrochemical trading company affected.</td></tr><tr id="28fa235e-e660-4d91-b16e-5cc2ffe1b05b"><td id="Sxp`" class="" style="width:47px">11</td><td id="CsuS" class="" style="width:352px">Cyber Terrorism</td><td id="hbLm" class="" style="width:449px">Mumbai&#x27;s first cyber terrorism case; Threat email traced to Bihar.</td></tr><tr id="928aaf3b-169b-42b8-89ea-d73ad7bd4997"><td id="Sxp`" class="" style="width:47px">P1</td><td id="CsuS" class="" style="width:352px">Husband Misusing Wife&#x27;s FB Account</td><td id="hbLm" class="" style="width:449px">Husband arrested for hiring hacker; Personal revenge.</td></tr><tr id="cf663c67-c5ec-4de3-9cc2-d4f526576699"><td id="Sxp`" class="" style="width:47px">P2</td><td id="CsuS" class="" style="width:352px">Webcam Access and Posting on Illegal Website</td><td id="hbLm" class="" style="width:449px">Woman&#x27;s webcam accessed; Videos posted illegally.</td></tr><tr id="9eed75d4-e8a4-41a5-a05b-05f34ce56baa"><td id="Sxp`" class="" style="width:47px">P3</td><td id="CsuS" class="" style="width:352px">SIM Card Duplication</td><td id="hbLm" class="" style="width:449px">Businessman&#x27;s details obtained through duplication; Cyber and financial crime.</td></tr><tr id="6e7b6ee2-ce9a-4972-a28f-116695a5756f"><td id="Sxp`" class="" style="width:47px">P4</td><td id="CsuS" class="" style="width:352px">Social Media Photo Misuse</td><td id="hbLm" class="" style="width:449px">Singer&#x27;s photos misused on social media; Cybercrime complaint.</td></tr><tr id="8a27a5e0-0b09-4010-810f-0397d9faf937"><td id="Sxp`" class="" style="width:47px">P5</td><td id="CsuS" class="" style="width:352px">Ex-boyfriend&#x27;s Revenge Posting</td><td id="hbLm" class="" style="width:449px">Ex-boyfriend posts ex&#x27;s number on dating service; Arrested.</td></tr></tbody></table><p id="6be63912-5b2e-42c5-80bd-871d88828eb3" class="">
+</p><hr id="7daf54e9-d02a-474c-99c3-b2afa75e9aeb"/><p id="37773098-1306-4acd-bbc8-cd35b0048956" class="">Module 3</p><table id="3fbbcbc8-41e0-43b9-8d3a-f82afeb768ce" class="simple-table"><tbody><tr id="c2222e0c-6196-4c75-8587-c188e47f47bb"><td id="Fydh" class="" style="width:112.65625px">Topic</td><td id="Ltqy" class="" style="width:300.34375px">Short Answer</td><td id="zZyX" class="" style="width:796px">Points</td></tr><tr id="c623896c-c6a6-41b3-b803-355d7658e0f1"><td id="Fydh" class="" style="width:112.65625px">Introduction to Social Networks</td><td id="Ltqy" class="" style="width:300.34375px">Connect users, allowing communication, information sharing, and relationship-building. They play a vital role on the internet, fostering connections between individuals, organizations, and communities.</td><td id="zZyX" class="" style="width:796px">Online Marketing, Online Jobs, Online News, Chatting, Sharing Media</td></tr><tr id="4a4a3c23-4c87-4847-bfc2-f7e7497de11c"><td id="Fydh" class="" style="width:112.65625px"></td><td id="Ltqy" class="" style="width:300.34375px">Types of Social Media</td><td id="zZyX" class="" style="width:796px">Social networks<br/>Discussion forums<br/>Image-sharing networks<br/>Bookmarking networks<br/>Blogging and publishing networks<br/>Consumer review networks<br/>Interest-based networks<br/>Sharing economy networks<br/>Social shopping networks<br/>Video hosting platforms<br/></td></tr><tr id="9906d6b3-0c02-4baf-bc72-cf2f053e7875"><td id="Fydh" class="" style="width:112.65625px">Social Media Platforms</td><td id="Ltqy" class="" style="width:300.34375px">There are 4.65 billion social media users on the planet. That’s 58.7% of the global population, many of whom are using social media as a primary source of information.</td><td id="zZyX" class="" style="width:796px">Facebook, YouTube, WhatsApp, Instagram, TikTok, Snapchat, Reddit, Pinterest, Twitter, LinkedIn</td></tr><tr id="6cd63fd3-5242-4ecb-a765-e7d41ceaac98"><td id="Fydh" class="" style="width:112.65625px">Social Media Monitoring</td><td id="Ltqy" class="" style="width:300.34375px">Tracking hashtags, keywords, and mentions for brand awareness. quantitative (metrics and analytics) and qualitative (inspiration for posts and strategies) research that will determine things like </td><td id="zZyX" class="" style="width:796px">social share of voice, sentiment analysis, social ROI, identifying trends, Relevant hashtags and keywords</td></tr><tr id="f46bdc79-1dd1-417c-b3a0-90c3817e2e84"><td id="Fydh" class="" style="width:112.65625px"></td><td id="Ltqy" class="" style="width:300.34375px">Tools to monitor customers</td><td id="zZyX" class="" style="width:796px">Hootsuite, Nexalogy, Mentionlytics, Reputology</td></tr><tr id="13089e54-e153-443f-a057-48896bc2c36a"><td id="Fydh" class="" style="width:112.65625px">Hashtag</td><td id="Ltqy" class="" style="width:300.34375px">Chris Messina in 2007, added to Oxford English Dictionary in 2014</td><td id="zZyX" class="" style="width:796px">Metadata tag prefaced by #, user-generated tagging, cross-referencing content by topic</td></tr><tr id="6b20a243-449d-4fce-8c0f-b70c7a862298"><td id="Fydh" class="" style="width:112.65625px">Viral Content</td><td id="Ltqy" class="" style="width:300.34375px">Online content achieving high awareness through shares, exposure on social media, news websites, etc., </td><td id="zZyX" class="" style="width:796px">generating brand awareness and website traffic, cost-effective compared to paid ads</td></tr><tr id="b20efdac-5a31-4de2-9fea-316ee5167290"><td id="Fydh" class="" style="width:112.65625px">Social Media Marketing (SMM)</td><td id="Ltqy" class="" style="width:300.34375px">Use of social media platforms like Facebook, X (formerly Twitter), and Instagram </td><td id="zZyX" class="" style="width:796px">for brand building, sales increase, and website traffic, leveraging connection, interaction, and customer data, cost-effective with great exposure.</td></tr><tr id="3fc74a51-a35d-49c4-a7f9-43d5dfd89c63"><td id="Fydh" class="" style="width:112.65625px"></td><td id="Ltqy" class="" style="width:300.34375px">Pros</td><td id="zZyX" class="" style="width:796px">Time and Effort Investment.<br/>Platform Complexity.<br/>Public Complaints and Reputational Risks.<br/>ROI Measurement Challenges<br/></td></tr><tr id="2c5ba2d2-9eb2-4c90-a4c1-43d0fdfff127"><td id="Fydh" class="" style="width:112.65625px"></td><td id="Ltqy" class="" style="width:300.34375px">Cons</td><td id="zZyX" class="" style="width:796px">Time and Effort Investment.<br/>Platform Complexity.<br/>Public Complaints and Reputational Risks.<br/>ROI Measurement Challenges<br/></td></tr><tr id="ff7ba992-43ed-43d2-b625-5b917d5a543f"><td id="Fydh" class="" style="width:112.65625px">Social Media Privacy</td><td id="Ltqy" class="" style="width:300.34375px">Social networking companies harvest sensitive data about individuals’ activities, interests, personal characteristics, political views, purchasing habits,<br/>and online behaviours.<br/></td><td id="zZyX" class="" style="width:796px">Data Harvesting, Algorithmic User Engagement, Behavioral Advertising, Privacy Hazards and Platform Consolidation, Vulnerability of Personal Data, Social Media Privacy, Data Brokers and Marketing</td></tr><tr id="00c5d13c-fd63-4752-b05c-73899c782257"><td id="Fydh" class="" style="width:112.65625px">Challenges, Opportunities, and Pitfalls in Online Social Network</td><td id="Ltqy" class="" style="width:300.34375px">Challenges in Online Social Network</td><td id="zZyX" class="" style="width:796px">Spamming.<br/>Privacy concerns.<br/>Data mining.<br/>Notifications.<br/>Access to information.<br/>Risk for child safety.<br/>Trolling.<br/>Radicalization.<br/>Online bullying.<br/>Misinformation.<br/>Privacy concerns<br/></td></tr><tr id="1082c63f-f326-494a-8ed0-7b3e8ccbcb3e"><td id="Fydh" class="" style="width:112.65625px"></td><td id="Ltqy" class="" style="width:300.34375px">Opportunities in Online Social Network</td><td id="zZyX" class="" style="width:796px">Impact on Business: Easier access to the web, faster connections, new devices, and applications.<br/>Opportunities for businesses to directly target customers.<br/>Promote products, build brand awareness, interact with customers, and measure social media impact on sales<br/></td></tr><tr id="6fbd642c-81b3-487f-9de7-83c2bb5da4e2"><td id="Fydh" class="" style="width:112.65625px"></td><td id="Ltqy" class="" style="width:300.34375px">Pitfalls in Online Social Network</td><td id="zZyX" class="" style="width:796px">Bandwidth and storage consumption.<br/>Potential legal liability.<br/>Exposure to malware.<br/>Decreased employee productivity.<br/>Disclosure of personal information.<br/>Risk of leaking corporate secrets.<br/>Limited executive use.<br/>Need for clear policies<br/></td></tr><tr id="090683ef-7aab-45a6-bea9-e9b2dece2526"><td id="Fydh" class="" style="width:112.65625px">Security Issues Related to Social Media</td><td id="Ltqy" class="" style="width:300.34375px">Common Security Threats</td><td id="zZyX" class="" style="width:796px">Malware.<br/>Phishing.<br/>Cyberbullying.<br/>Data mining.<br/>Identity theft.<br/>Cyberterrorism.<br/>Data breach.<br/>Hacking.<br/>Social engineering.<br/>Clickjacking.<br/>Likejacking.<br/>Stalking.<br/>Spam issues<br/></td></tr><tr id="cec6a658-8441-46e9-ac69-d5911fa6e11f"><td id="Fydh" class="" style="width:112.65625px">Flagging and Reporting of Inappropriate Content</td><td id="Ltqy" class="" style="width:300.34375px">Mechanism for reporting offensive content to a social media platform or other<br/>digital platforms. It often appears as a “report”<br/>button. Content can be flagged by an algorithm, content moderator, or another user.<br/></td><td id="zZyX" class="" style="width:796px">Sexual or nudity content.<br/>Violent or repulsive content.<br/>Hateful or abusive content.<br/>Harassment or bullying.<br/>Harmful or dangerous acts.<br/>Misinformation or false information.<br/>Child abuse.<br/>Legal issue.<br/>Promotes terrorism.<br/>Spam or misleading<br/></td></tr><tr id="519f9670-7db2-4d38-b9ab-7ecbf299f918"><td id="Fydh" class="" style="width:112.65625px">Best Practices for The Use of Social Media</td><td id="Ltqy" class="" style="width:300.34375px">Social networking safety tips you should always keep in mind.</td><td id="zZyX" class="" style="width:796px">Manage your privacy settings.<br/>Remember once posted always posted.<br/>Build a positive online reputation.<br/>Keep personal info personal.<br/>Protect your computer.<br/>Know what action to take.<br/>Use strong passwords.<br/>Be cautious on social networking sites.<br/></td></tr></tbody></table><table id="518508b6-4767-40fa-9fd0-2a0d3700a39f" class="simple-table"><tbody><tr id="5a569009-08ef-4f0f-a469-e0ba83dc4246"><td id="oi=G" class=""></td><td id="TdJu" class="" style="width:563px">Information Technology Act (IT Act), 2000</td></tr><tr id="1bb69c2a-ba16-4efc-b39d-e0e8faae01a4"><td id="oi=G" class="">Sec 66A</td><td id="TdJu" class="" style="width:563px">Formerly regulated online content but was struck down in 2015.</td></tr><tr id="e675aa3f-0c62-4f99-945a-f42b8ae1e512"><td id="oi=G" class="">Sec 67</td><td id="TdJu" class="" style="width:563px">Penalizes publishing or transmitting obscene material online.</td></tr><tr id="5b226c04-3e6e-4181-88af-ceca2a0f3cf9"><td id="oi=G" class="">Sec 67–B</td><td id="TdJu" class="" style="width:563px">Addresses the transmission of sexually explicit material involving children.</td></tr></tbody></table><table id="7b8adcf5-2ca6-4952-9e0d-f7836714434c" class="simple-table"><tbody><tr id="9c29dd75-55bf-4a51-801a-8e275259da49"><td id="G[oo" class=""></td><td id="`[Vg" class="" style="width:567px">Indian Penal Code (IPC), 1860</td></tr><tr id="b97bc90c-e00f-47d9-8dad-969fa2f8c8c0"><td id="G[oo" class="">Sec 124-A</td><td id="`[Vg" class="" style="width:567px">Punishes attempts to incite hatred or contempt towards the government.</td></tr><tr id="54b076bb-ed93-4fe2-b753-22dfd8dfed8f"><td id="G[oo" class="">Sec 153A</td><td id="`[Vg" class="" style="width:567px">Penalizes promoting enmity between groups.</td></tr><tr id="46c03f77-b440-4628-8b20-891fa847b04e"><td id="G[oo" class="">Sec 295A</td><td id="`[Vg" class="" style="width:567px">Addresses intentional insults to religion.</td></tr><tr id="dac08aaf-f280-48a4-9891-86f53ea951c9"><td id="G[oo" class="">Sec 499</td><td id="`[Vg" class="" style="width:567px">Deals with defamation.</td></tr><tr id="14e23143-ed13-41d2-ac12-160ad2d6bdd5"><td id="G[oo" class="">Sec 505</td><td id="`[Vg" class="" style="width:567px">Covers statements causing public mischief.</td></tr><tr id="339bad20-5522-4bf1-8fd6-ff1696e4cb1d"><td id="G[oo" class="">Sec 506</td><td id="`[Vg" class="" style="width:567px">Addresses criminal intimidation.</td></tr><tr id="7d1d3a11-c66e-4ae3-9182-ed1d1874235b"><td id="G[oo" class="">Sec 509</td><td id="`[Vg" class="" style="width:567px">Pertains to insulting the modesty of a woman.</td></tr></tbody></table><table id="bd2bf9c0-0d3e-449b-b29e-4499edb34d2b" class="simple-table"><tbody><tr id="04c58d4e-8e70-4fe3-bdf1-e568e743deb5"><td id="=qFK" class="" style="width:45px"><strong>No</strong></td><td id="{fS\" class="" style="width:305px"><strong>Case Title</strong></td><td id="&lt;nfj" class="" style="width:423px"><strong>Details</strong></td></tr><tr id="4c61136b-24b3-4bee-b6c6-f58a6e3dd996"><td id="=qFK" class="" style="width:45px">1</td><td id="{fS\" class="" style="width:305px">Aseem Trivedi, Mumbai, Sep 2012</td><td id="&lt;nfj" class="" style="width:423px">Satirical cartoons on website and Facebook mocking parliament and corruption; charged with sedition.</td></tr><tr id="6d81e530-8046-4216-ae28-425cc236eda5"><td id="=qFK" class="" style="width:45px">2</td><td id="{fS\" class="" style="width:305px">Palghar girls, Mumbai, Nov 2012</td><td id="&lt;nfj" class="" style="width:423px">Facebook post questioning shutdown for Bal Thackeray&#x27;s funeral; charged with hurting religious sentiments.</td></tr><tr id="7c789b22-6cbe-49f5-bf92-7114467aab72"><td id="=qFK" class="" style="width:45px">3</td><td id="{fS\" class="" style="width:305px">Ambikesh Mahapatra, Jadavpur, Apr 2012</td><td id="&lt;nfj" class="" style="width:423px">Circulated a cartoon mocking Mamata Banerjee; charged under the IT Act.</td></tr><tr id="25532c8b-db64-4bd2-893e-79ce4a311b00"><td id="=qFK" class="" style="width:45px">4</td><td id="{fS\" class="" style="width:305px">Air India employees, Mumbai, May 2012</td><td id="&lt;nfj" class="" style="width:423px">Posted indecent jokes about the Prime Minister; charges dropped after 12 days in jail.</td></tr><tr id="c91a56c8-52ab-4868-91c3-6a64090a8dfa"><td id="=qFK" class="" style="width:45px">5</td><td id="{fS\" class="" style="width:305px">Kishtwar youngsters, Jammu, Oct 2012</td><td id="&lt;nfj" class="" style="width:423px">Tagged in a blasphemous video on Facebook; charged with desecrating religious symbols.</td></tr><tr id="efd97e17-9af5-477e-96fb-43d7106fd9cb"><td id="=qFK" class="" style="width:45px">6</td><td id="{fS\" class="" style="width:305px">Ravi Srinivasan, Oct 2012</td><td id="&lt;nfj" class="" style="width:423px">Posted &#x27;offensive&#x27; messages on Twitter about Karti Chidambaram.</td></tr><tr id="d75ae5ec-7c0a-4765-a2c9-5fee81db0d81"><td id="=qFK" class="" style="width:45px">7</td><td id="{fS\" class="" style="width:305px">Kanwal Bharti, Uttar Pradesh, Aug 2013</td><td id="&lt;nfj" class="" style="width:423px">Criticized the government on Facebook; questioned the suspension of IAS officer Durga Shakti Nagpal.</td></tr><tr id="bdd2b990-92fa-4bd7-8ff9-f0c4fd956a11"><td id="=qFK" class="" style="width:45px">8</td><td id="{fS\" class="" style="width:305px">Rajeesh Kumar, Kerala, Aug 2014</td><td id="&lt;nfj" class="" style="width:423px">Posted abusive comments and photos on Facebook about PM Narendra Modi.</td></tr><tr id="d8402aa4-3875-4f2c-b6df-9db7d9db13e1"><td id="=qFK" class="" style="width:45px">9</td><td id="{fS\" class="" style="width:305px">Devu Chodankar, Goa, May 2014</td><td id="&lt;nfj" class="" style="width:423px">Posted a comment against Modi on Facebook; seen as an attempt to muzzle criticism.</td></tr><tr id="5762626b-3be4-434b-87d2-76a003e969e9"><td id="=qFK" class="" style="width:45px">10</td><td id="{fS\" class="" style="width:305px">Class XI student, Rampur, Mar 2015</td><td id="&lt;nfj" class="" style="width:423px">Allegedly posted objectionable comments attributed to Azam Khan on Facebook; released on bail.</td></tr></tbody></table><hr id="a038c2ca-29ed-4da3-a960-2bdcbb883580"/><p id="80661275-8e8e-4f65-966e-c01574fd9a46" class="">Module 4</p><table id="8835c511-8dbb-48c4-a7d7-2da8c53a9eab" class="simple-table"><tbody><tr id="40aede8d-05b7-4530-9742-8831c46c6e2b"><td id="bzPn" class="" style="width:156.4375px">Topic</td><td id="qT&gt;y" class="" style="width:232.765625px">Short Answer</td><td id="P[Ws" class="" style="width:369px">Points</td></tr><tr id="1dff9370-24e3-4304-a90c-1dfab896cd99"><td id="bzPn" class="" style="width:156.4375px">E-Commerce</td><td id="qT&gt;y" class="" style="width:232.765625px">Buying and selling of goods and services, or the transmitting of funds or data, over an electronic network. (B2B, B2C, C2C, C2B)</td><td id="P[Ws" class="" style="width:369px">User<br/>E-commerce Vendors<br/>Technology Infrastructure (Servers, Apps)<br/>Network<br/>Web Portal<br/>Payment Gateway<br/></td></tr><tr id="c5139562-8451-44e8-8be3-eddc274681bf"><td id="bzPn" class="" style="width:156.4375px">E-Commerce Security</td><td id="qT&gt;y" class="" style="width:232.765625px">Six dimensions of E-commerce security</td><td id="P[Ws" class="" style="width:369px">Integrity (Unauthorized Data)<br/>Non-Repudiation (Reneging on agreement)<br/>Authenticity<br/>Confidentiality (Protection against)<br/>Privacy<br/>Availability<br/></td></tr><tr id="06bfcf8b-12a8-490c-bf25-67e5f155b658"><td id="bzPn" class="" style="width:156.4375px">E-Commerce Threats</td><td id="qT&gt;y" class="" style="width:232.765625px">Businesses face many threats</td><td id="P[Ws" class="" style="width:369px">Phishing<br/>Denial-of-service attacks<br/>Malware<br/>Brute-force attacks<br/>Internet bots<br/>Man-in-the-middle attacks<br/>Credit card fraud (Fraud, Data breaches, Identity theft, Payment fraud, Financial fraud)<br/></td></tr><tr id="b546f399-ae52-4294-86fc-25a0e2f70033"><td id="bzPn" class="" style="width:156.4375px">E-Commerce Security Best Practices</td><td id="qT&gt;y" class="" style="width:232.765625px">Measures to enhance e-commerce security</td><td id="P[Ws" class="" style="width:369px">Strong passwords<br/>SSL certificate<br/>Payment gateway security<br/>Firewall<br/>HTTPS<br/>PCI DSS compliance<br/>Anti-malware<br/></td></tr><tr id="2aa54d99-b0c8-4013-8c7d-20f92cc10c3d"><td id="bzPn" class="" style="width:156.4375px"></td><td id="qT&gt;y" class="" style="width:232.765625px">Other</td><td id="P[Ws" class="" style="width:369px">Password updates, Activity monitoring, Software updates, Info sharing limits, Security plugins, AVS, Regular backups, Website testing.</td></tr><tr id="4ec93d38-f13b-4f6d-9601-39caf6513744"><td id="bzPn" class="" style="width:156.4375px">Digital Payments</td><td id="qT&gt;y" class="" style="width:232.765625px">Cashless transactions initiated by the Indian government to promote a cashless economy under the Digital India initiative</td><td id="P[Ws" class="" style="width:369px">Bank cards<br/>USSD<br/>Aadhaar Enabled Payment System (AePS)<br/>United Payments Interface (UPI)<br/>Mobile wallets<br/>Internet and mobile banking<br/></td></tr><tr id="55ea2d7a-8169-4453-8bbd-cea56aecc8eb"><td id="bzPn" class="" style="width:156.4375px"></td><td id="qT&gt;y" class="" style="width:232.765625px">Benefits </td><td id="P[Ws" class="" style="width:369px">Easy and convenient<br/>Economically progressive<br/>Safe transactions<br/></td></tr><tr id="2e4493ac-9891-4a84-9331-ab4fc587e284"><td id="bzPn" class="" style="width:156.4375px"></td><td id="qT&gt;y" class="" style="width:232.765625px">Components of Digital Payment</td><td id="P[Ws" class="" style="width:369px">User Interface (UI)<br/>Payment Gateway<br/>Payment Processor<br/>Authentication and Security<br/>Mobile Wallets<br/>Tokenization<br/>APIs<br/></td></tr><tr id="ce767333-e792-4656-9c6e-82fdf0c42530"><td id="bzPn" class="" style="width:156.4375px"></td><td id="qT&gt;y" class="" style="width:232.765625px">Stakeholders in digital payment systems</td><td id="P[Ws" class="" style="width:369px">Consumers<br/>Merchants<br/>Banks<br/>Payment Service Providers (PSPs)<br/>Card Networks<br/>Regulatory Authorities<br/>Technology Providers<br/>Central Banks<br/>Mobile Network Operators (MNOs)<br/>Third-Party Providers<br/></td></tr><tr id="6b224d1f-935f-4ea0-9e94-e1ed6a133807"><td id="bzPn" class="" style="width:156.4375px">Modes of Digital Payments</td><td id="qT&gt;y" class="" style="width:232.765625px">Encompass a variety of modes that enable electronic transactions, providing<br/>convenient and efficient alternatives to traditional cash and check payments<br/></td><td id="P[Ws" class="" style="width:369px">Banking cards<br/>USSD<br/>AePS<br/>Digital wallets<br/>Bank prepaid cards<br/>PoS terminals<br/>Micro ATMs<br/>Internet banking<br/>Digital payment apps<br/>UPI<br/></td></tr><tr id="0ff2fd45-1fb8-4197-898b-9d73bddfbba0"><td id="bzPn" class="" style="width:156.4375px">Banking Cards</td><td id="qT&gt;y" class="" style="width:232.765625px">Various types of banking cards</td><td id="P[Ws" class="" style="width:369px">Debit Cards<br/>Credit Cards<br/>Prepaid Cards<br/>ATM Cards<br/>Charge Cards<br/>Contactless Cards<br/>EMV Chip Cards<br/>Affinity Cards<br/>Business Cards<br/>Virtual Cards<br/>Smart Cards<br/></td></tr><tr id="a980fa7c-4489-4ef9-9aae-009cec33176f"><td id="bzPn" class="" style="width:156.4375px">Unified Payment Interface (UPI)</td><td id="qT&gt;y" class="" style="width:232.765625px">System developed by the National Payments Corporation of India (NPCI) to facilitate seamless and instant fund transfers between banks through mobile devices.</td><td id="P[Ws" class="" style="width:369px">Instant Fund Transfer<br/>Mobile-Centric<br/>Single Mobile Application<br/>Virtual Payment Address (VPA)<br/>Security Measures<br/>Aadhaar Integration<br/>QR Code Payments<br/>Collect Request<br/>Third-Party Apps<br/>Bill Payments and In-App Services<br/>Multi-Bank Support<br/>National and International Expansion<br/></td></tr><tr id="e334c0d0-98b2-478d-b381-9307c2449037"><td id="bzPn" class="" style="width:156.4375px">e-Wallets</td><td id="qT&gt;y" class="" style="width:232.765625px">Digital versions of traditional wallets that allow users to store and manage their financial<br/>information securely on electronic devices. Facilitate various financial transactions,<br/>including online purchases, mobile recharges, bill payments, and peer-to-peer transfers.<br/></td><td id="P[Ws" class="" style="width:369px">Mobile-Centric<br/>Digital Storage of Payment Information<br/>Top-Up and Funding<br/>Security Measures<br/>Peer-to-Peer (P2P) Transfers<br/>Contactless and NFC Payments<br/>QR Code Payments<br/>In-App and Online Purchases<br/>Bill Payments and Recharges<br/>Rewards and Loyalty Programs<br/>Multi-Currency Support<br/>Offline Transactions<br/>Virtual Cards<br/>Integration with Other Services<br/></td></tr><tr id="121e47e9-1320-4b20-863c-47c59fe7baf7"><td id="bzPn" class="" style="width:156.4375px">Unstructured Supplementary Service Data (USSD)</td><td id="qT&gt;y" class="" style="width:232.765625px">USSD is a Communication protocol used by<br/>GSM (Global System for Mobile Communications) cellular phones to communicate with the<br/>mobile network operator&#x27;s servers. <br/><strong><strong>USSD allows for the transmission of text messages<br/>between a mobile phone and applications on the network.<br/></strong></strong></td><td id="P[Ws" class="" style="width:369px">Session-Based Communication<br/>User-Friendly Menu System<br/>Quick Response Time<br/>No Internet Connection Required<br/>Widely Supported<br/>Mobile Banking and Financial Services<br/>Service Short codes<br/>Balance Inquiries and Recharges<br/>Two-Way Communication<br/>Security Measures<br/>Mobile Network Operator Services<br/></td></tr><tr id="17e7dffc-304a-402a-9355-fc38fb758096"><td id="bzPn" class="" style="width:156.4375px">Aadhaar Enabled Payment System (AePS)</td><td id="qT&gt;y" class="" style="width:232.765625px">Initiative by the Government of India to promote financial inclusion and provide banking services to all citizens, especially in rural and remote areas. AePS leverages the Aadhaar (a 12-digit unique identification number) to facilitate banking transactions through micro-ATMs</td><td id="P[Ws" class="" style="width:369px">Authentication<br/>Micro-ATMs<br/>Transaction Types (Balance Enquiry, Cash Withdrawal, Cash Deposit, Fund Transfer)<br/>Biometric Authentication<br/>Banking Correspondents/Agents<br/></td></tr></tbody></table><table id="8f6ec03e-c4ab-4efd-8772-5cf8606de480" class="simple-table"><tbody><tr id="f901bab4-6c95-4e74-bd90-e425f5a2b33d"><td id="&lt;Rjd" class="" style="width:270px">Digital Payments Fraud Prevention</td><td id="pYkC" class="" style="width:485px"></td></tr><tr id="7296c4a2-088d-465c-9763-d05bc6384af2"><td id="&lt;Rjd" class="" style="width:270px"><strong>Phishing</strong></td><td id="pYkC" class="" style="width:485px">Verify website (check URL), Avoid suspicious links, Use 2FA</td></tr><tr id="de1b2ede-e6bd-419c-9f6e-37bfd5398e71"><td id="&lt;Rjd" class="" style="width:270px">Identity Theft</td><td id="pYkC" class="" style="width:485px">Monitor statements, Strong passwords, Enable alerts</td></tr><tr id="7103248d-faa8-498a-b741-78c2c55aeddf"><td id="&lt;Rjd" class="" style="width:270px">Card Skimming</td><td id="pYkC" class="" style="width:485px">Cover PIN entry, Check card statements, Prefer chip cards</td></tr><tr id="4f158242-4f49-4562-a21d-99195a6cb423"><td id="&lt;Rjd" class="" style="width:270px">Man-in-the-Middle</td><td id="pYkC" class="" style="width:485px">Use secure networks, Check &quot;https&quot; in URLs, Consider a VPN</td></tr><tr id="f480aff4-9b08-4a57-b98a-09c7b0c08ce6"><td id="&lt;Rjd" class="" style="width:270px">Mobile Wallet Fraud</td><td id="pYkC" class="" style="width:485px">Biometric authentication, Transaction alerts, Keep apps updated</td></tr><tr id="ec9e53ee-573b-414e-8dad-c857743f805f"><td id="&lt;Rjd" class="" style="width:270px">Social Engineering</td><td id="pYkC" class="" style="width:485px">Be cautious online/phone, Verify identities, Educate on tactics</td></tr><tr id="22514ae2-9d96-4b07-b9c8-e162a867e54c"><td id="&lt;Rjd" class="" style="width:270px">Account Takeover</td><td id="pYkC" class="" style="width:485px">Strong passwords, 2FA, Review settings</td></tr><tr id="da86ed17-46d7-4648-beb0-913e7dbc4575"><td id="&lt;Rjd" class="" style="width:270px">Ransomware Attacks</td><td id="pYkC" class="" style="width:485px">Keep software updated, Regular data backups, Be cautious with email</td></tr></tbody></table><table id="2a29e266-be8f-4735-a5d7-9267f671e916" class="simple-table"><tbody><tr id="c0fa8ac2-931b-4419-a134-8d5468186cea"><td id="O:V{" class="">RBI Guidelines:</td><td id="lYP:" class="" style="width:457px"> Digital Payments &amp; Customer Protection</td></tr><tr id="861d4915-17ad-4e56-a563-7ae6d7ff0614"><td id="O:V{" class=""><strong>Reporting Framework:</strong></td><td id="lYP:" class="" style="width:457px">Dedicated system for quick fraud reporting.</td></tr><tr id="85f72196-0795-4139-bcef-2cfc4d9f8fde"><td id="O:V{" class=""><strong>RBI Reporting:</strong></td><td id="lYP:" class="" style="width:457px">Swift, accurate reporting of UPI frauds.</td></tr><tr id="ace85b61-6f7e-48f2-90e7-c8135e67852d"><td id="O:V{" class=""><strong>Fraud Prevention:</strong></td><td id="lYP:" class="" style="width:457px">Prioritize investigations, engage law enforcement.</td></tr><tr id="32fc25b5-b923-4ef3-9808-47b9714dc711"><td id="O:V{" class=""><strong>Oversight Committees:</strong></td><td id="lYP:" class="" style="width:457px">CEO, audit, special committees oversee fraud protection.</td></tr><tr id="698d4af2-7251-4edf-8a93-39f9ebce5f1e"><td id="O:V{" class=""><strong>Internal Policies:</strong></td><td id="lYP:" class="" style="width:457px">Frame fraud detection policies post board approval.</td></tr><tr id="9523d817-5071-49d8-811a-72aae93848f3"><td id="O:V{" class=""><strong>Fraud Monitoring:</strong></td><td id="lYP:" class="" style="width:457px">Submit XBRL Fraud Monitoring Returns; assign personnel.</td></tr><tr id="22d04a34-813a-4f24-831a-518a7eb601bf"><td id="O:V{" class=""><strong>2FA Mandate:</strong></td><td id="lYP:" class="" style="width:457px">Enhance security with mandatory two-factor authentication.</td></tr><tr id="9f1d23cf-6b11-4027-80d6-67581b317cbc"><td id="O:V{" class=""><strong>Customer Education:</strong></td><td id="lYP:" class="" style="width:457px">Banks educate on frauds and secure digital practices.</td></tr><tr id="e3e12b96-076e-44d6-9cd2-e03bf4a52403"><td id="O:V{" class="">Official Source<strong>:</strong> </td><td id="lYP:" class="" style="width:457px">Refer to <a href="https://www.rbi.org.in/">RBI website</a> or contact your bank for specifics.</td></tr><tr id="413fc70d-a13f-4fcf-85ce-cf7fe340a667"><td id="O:V{" class=""><strong>Refund Framework</strong></td><td id="lYP:" class="" style="width:457px"></td></tr><tr id="9cf2c179-ef58-4c10-b45b-0c21bad00626"><td id="O:V{" class=""><strong>Within 3 Days:</strong></td><td id="lYP:" class="" style="width:457px">Zero liability, full refund for prompt reporting.</td></tr><tr id="011975e4-b3bd-44c6-bbc4-479c96c917f6"><td id="O:V{" class=""><strong>4-7 Days:</strong></td><td id="lYP:" class="" style="width:457px">Limited liability of INR 5,000 to INR 25,000.</td></tr><tr id="e38aba4d-4a8e-42e1-8cf3-fa8797b46eb6"><td id="O:V{" class=""><strong>After 7 Days:</strong></td><td id="lYP:" class="" style="width:457px">No liability; unreported transactions won&#x27;t be refunded.</td></tr></tbody></table><table id="8f0c2801-b11a-44f1-aaa7-dda1d76a985d" class="simple-table"><tbody><tr id="73f2a0a8-6241-409b-b2c1-2207ce9500c6"><td id="pkWr" class="" style="width:170px"><strong>IT Act, 2000</strong></td><td id="&gt;~Z?" class="" style="width:544px"></td></tr><tr id="eb1d938a-beab-434e-9c9f-6485e2e6012c"><td id="pkWr" class="" style="width:170px"><strong>Regulation Purpose:</strong></td><td id="&gt;~Z?" class="" style="width:544px">Regulating social media, holding platforms accountable.</td></tr><tr id="50fa0476-d927-473f-a6e1-9b4beda4fa50"><td id="pkWr" class="" style="width:170px"><strong>Section 66A:</strong></td><td id="&gt;~Z?" class="" style="width:544px">Formerly regulating media, struck down in 2015, emphasizing free speech.</td></tr><tr id="2ba4ed0e-deaa-4b89-9bfa-2336dcfc124e"><td id="pkWr" class="" style="width:170px"><strong>Section 67:</strong></td><td id="&gt;~Z?" class="" style="width:544px">Addresses punishment for publishing obscene material online.</td></tr><tr id="b4e46cdc-c969-4871-b030-785b91c36c9b"><td id="pkWr" class="" style="width:170px"><strong>Section 67B:</strong></td><td id="&gt;~Z?" class="" style="width:544px">Specifically deals with child sexual exploitation material.</td></tr></tbody></table><table id="17eff164-28fe-4749-bccd-3d75f09a23e9" class="simple-table"><tbody><tr id="b51fc545-1ebc-4a7e-b404-083f846b8b64"><td id="UAQI" class="" style="width:298px"><strong>IPC, 1860</strong></td><td id="=]B_" class="" style="width:419px"></td></tr><tr id="b64c6dbc-b9d2-4184-89a5-8956e9d8d0aa"><td id="UAQI" class="" style="width:298px"><strong>Section 124-A (Sedition):</strong></td><td id="=]B_" class="" style="width:419px">Punishes attempts to incite hatred towards the government.</td></tr><tr id="26d1682b-834d-4e37-94ff-52b95e03389a"><td id="UAQI" class="" style="width:298px"><strong>Section 153A:</strong></td><td id="=]B_" class="" style="width:419px">Targets actions promoting enmity.</td></tr><tr id="a8cdc2d7-f5a1-4c6e-b17a-e9fbdbe6a518"><td id="UAQI" class="" style="width:298px"><strong>Section 295A:</strong></td><td id="=]B_" class="" style="width:419px">Addresses intentional insults to religion.</td></tr><tr id="51d3b8e4-7121-48fb-89be-cb1545b4da38"><td id="UAQI" class="" style="width:298px"><strong>Section 499 (Defamation):</strong></td><td id="=]B_" class="" style="width:419px">Imposes penalties for defamation.</td></tr><tr id="7530e052-ad20-42f4-9092-33f5943818b0"><td id="UAQI" class="" style="width:298px"><strong>Section 505:</strong></td><td id="=]B_" class="" style="width:419px">Pertains to statements causing public mischief.</td></tr><tr id="164d8158-e94d-40c1-8f79-0b6a7e1d5dbe"><td id="UAQI" class="" style="width:298px"><strong>Section 506 (Criminal Intimidation):</strong></td><td id="=]B_" class="" style="width:419px">Targets threats.</td></tr><tr id="35cf8393-dd38-4626-b673-467dccf4fbb1"><td id="UAQI" class="" style="width:298px"><strong>Section 509:</strong></td><td id="=]B_" class="" style="width:419px">Addresses insulting the modesty of a woman.</td></tr></tbody></table><p id="ad3ac36f-0ea0-45bb-8e88-42b8637e4776" class="">
+</p><hr id="d305d6ff-29ba-4de6-8086-27ed9b7cd57e"/><p id="185d8809-e68a-41d7-969d-359d6bf4454a" class="">Module 5</p><table id="c3cbb9eb-164e-49cc-8012-dbf12f10702f" class="simple-table"><tbody><tr id="6d651093-ed2d-4e0b-a1ed-1138bc52eb63"><td id="MLQN" class="" style="width:138px">Topic</td><td id="P;cP" class="" style="width:245.5px">Short Answer</td><td id="jIVi" class="" style="width:434px">Points</td></tr><tr id="1d66fb39-b71c-4aad-81e8-3846d8c348a4"><td id="MLQN" class="" style="width:138px">End Point Device and Mobile Phone Security</td><td id="P;cP" class="" style="width:245.5px">General Endpoint Security.</td><td id="jIVi" class="" style="width:434px">Keep Software Updated<br/>Use Strong Authentication<br/>Endpoint Protection Software<br/>Firewalls<br/>Backup Data<br/>Encryption<br/>Security Policies<br/></td></tr><tr id="fddd2ebf-60d1-4c41-94b3-5d1922885e82"><td id="MLQN" class="" style="width:138px"></td><td id="P;cP" class="" style="width:245.5px">Mobile Phone Security</td><td id="jIVi" class="" style="width:434px">Device Locking<br/>App Permissions<br/>App Source<br/>Device Tracking<br/>Remote Wipe<br/>Secure Wi-Fi Connections<br/>Biometric Authentication<br/>OS Updates<br/>Two-Factor Authentication<br/>Secure Messaging &amp; Browsing<br/>Educate Users<br/></td></tr><tr id="062a37fb-a944-4575-877c-573b3721b81a"><td id="MLQN" class="" style="width:138px">Password Policy</td><td id="P;cP" class="" style="width:245.5px">Set of rules &amp; requirements that dictate the criteria for creating and<br/>managing passwords within system.<br/></td><td id="jIVi" class="" style="width:434px">Password Length<br/>Complexity Requirements<br/>Password History<br/>Expiration<br/>Account Lockout Policy<br/>2FA/MFA<br/>User Education<br/>Monitoring and Auditing<br/>Password Storage<br/>Password Recovery<br/>Third-Party Integration<br/>Compliance (GDPR, HIPAA)<br/></td></tr><tr id="f12015c1-c3a4-48f9-93c5-c6d2cfd39e2e"><td id="MLQN" class="" style="width:138px">Security Patch Management</td><td id="P;cP" class="" style="width:245.5px">Maintaining the security of computer<br/>systems, networks, and applications.<br/></td><td id="jIVi" class="" style="width:434px">Vulnerability Assessment<br/>Patch Identification<br/>Prioritization<br/>Testing<br/>Patch Deployment<br/>Automation<br/>Rollback Plan<br/>Inventory Management<br/>User Awareness<br/>Monitoring and Reporting<br/>Compliance and Auditing<br/>Third-Party Software<br/>Collaboration with Vendors<br/>Continuous Improvement<br/></td></tr><tr id="b62bacfb-be29-4b98-8afc-aa2cd625fd17"><td id="MLQN" class="" style="width:138px">Data Backup</td><td id="P;cP" class="" style="width:245.5px">It involves creating and storing copies of important data to protect against data loss,<br/>whether due to accidental deletion, hardware failure, software issues, or security breaches.<br/></td><td id="jIVi" class="" style="width:434px">Identify Critical Data<br/>Backup Frequency<br/>Automated Backup Systems<br/>Onsite &amp; Offsite Backups<br/>Cloud Backup<br/>Versioning<br/>Encryption<br/>Regular Testing<br/>Documentation<br/>Monitoring and Alerts<br/>Compliance<br/>Redundancy<br/>User Education<br/>Regular Review and Updates<br/></td></tr><tr id="269b6a9a-6f1f-4deb-ba75-c1b30b3e4098"><td id="MLQN" class="" style="width:138px">Downloading and Management of Third-Party Software</td><td id="P;cP" class="" style="width:245.5px">involves a series of steps to ensure the<br/>secure and effective integration of external applications into your system.<br/></td><td id="jIVi" class="" style="width:434px">Source Verification<br/>Digital Signatures<br/>License Compliance<br/>Latest Version<br/>Check Reviews<br/>Security Scans<br/>Read Documentation<br/>Sandboxes and Virtual Environments<br/>Configuration Security<br/>Regular Updates<br/>Inventory Management<br/>User Training<br/>Centralized Management<br/>Uninstall Unused Software<br/>Backup Before Installation<br/></td></tr><tr id="d5507ac7-76de-46b8-97f9-eb2e1eef1cf4"><td id="MLQN" class="" style="width:138px">Device Security Policy</td><td id="P;cP" class="" style="width:245.5px">Set of guidelines, rules, and best practices designed to protect the<br/>security and integrity of electronic devices within an organization.<br/></td><td id="jIVi" class="" style="width:434px">Device Inventory (type, model, owner, and assigned user.)<br/>Authorized Devices (Approved OS)<br/>Device Configuration Standards<br/>User Authentication<br/>Encryption<br/>OS Updates<br/>Application Security<br/>Network Security<br/>Remote Access and Management<br/>Data Backup<br/>Physical Security<br/>Incident Response<br/>User Training and Awareness<br/>Device Decommissioning<br/>Compliance and Auditing<br/>Monitoring and Logging<br/>User Responsibilities<br/>Policy Review and Updates<br/></td></tr><tr id="518f83c5-4fdc-4332-ad27-8c14577611b0"><td id="MLQN" class="" style="width:138px">Cyber Security Best Practices</td><td id="P;cP" class="" style="width:245.5px">Essential for individuals, businesses, and organizations to<br/>protect their digital assets and sensitive information from cyber threats<br/></td><td id="jIVi" class="" style="width:434px">Strong Passwords<br/>Multi-Factor Authentication<br/>Software Updates<br/>Firewalls &amp; Antivirus<br/>Data Encryption<br/>Backup Data<br/>Be Wary of Phishing Attacks<br/>Secure Wi-Fi Networks<br/>Employee Training and Awareness<br/>Incident Response Plan<br/>Access Control<br/>Regular Security Audits and Assessments<br/>Mobile Device Security (MDM)<br/>Patch Management<br/>Vendor Security<br/></td></tr><tr id="37ac80f3-48e9-425b-9166-15eeb0955345"><td id="MLQN" class="" style="width:138px">Significance of Host Firewall and Anti-virus</td><td id="P;cP" class="" style="width:245.5px">Host Firewall</td><td id="jIVi" class="" style="width:434px">Network Security<br/>Blocking Malicious Connections<br/>Intrusion Prevention<br/></td></tr><tr id="db470b10-00ab-449a-9c2e-c0264f017d90"><td id="MLQN" class="" style="width:138px"></td><td id="P;cP" class="" style="width:245.5px">Antivirus Software</td><td id="jIVi" class="" style="width:434px">Malware Protection<br/>Behavioral Analysis<br/>Regular Updates<br/>Email and Web protection<br/></td></tr><tr id="d2a204b2-1594-4f6d-bc11-9d4292edc6b9"><td id="MLQN" class="" style="width:138px"></td><td id="P;cP" class="" style="width:245.5px">BOTH TOGETHER</td><td id="jIVi" class="" style="width:434px">Comprehensive Protection, Defense in Depth, Risk Mitigation</td></tr><tr id="a4f12e1d-dc86-4e83-9e29-2871f7291f73"><td id="MLQN" class="" style="width:138px">Management of Host Firewall and Anti-virus</td><td id="P;cP" class="" style="width:245.5px">Host firewall Management </td><td id="jIVi" class="" style="width:434px">Enable the Firewall<br/>Default Deny Rule<br/>Regular Analysis<br/>Log Analysis<br/>Application Control<br/>IPS Intrusion prevention systems.<br/></td></tr><tr id="212a5587-6015-406f-968d-a055f96deb87"><td id="MLQN" class="" style="width:138px"></td><td id="P;cP" class="" style="width:245.5px">Antivirus Software Management</td><td id="jIVi" class="" style="width:434px">Scheduled Scans<br/>Real-time Protection<br/>Regular Updates<br/>Quarantine and Removal<br/>Email and Web protection<br/>Behavioural Analysis<br/>User Education<br/></td></tr><tr id="3df86ebf-c71b-424e-bbe8-e3b1a5cbadf1"><td id="MLQN" class="" style="width:138px"></td><td id="P;cP" class="" style="width:245.5px">General Best Practices</td><td id="jIVi" class="" style="width:434px">Regular Security Audits<br/>Patch Management<br/>Back up and recovery<br/>Incident Response Plan<br/></td></tr><tr id="70c0804c-a9cf-464c-8d97-b83d17924f16"><td id="MLQN" class="" style="width:138px">Wi-Fi Security</td><td id="P;cP" class="" style="width:245.5px">Securing Your Wi-Fi Network</td><td id="jIVi" class="" style="width:434px">Encryption (WPA3)<br/>Network Name &amp; SSID Security<br/>Strong Passwords<br/>Network Authentication (WPA3-PSK) (RADIUS)<br/>Guest Network<br/>Firewall and Router Settings<br/>MAC Address Filtering<br/>VPN<br/>Regular Security Audits<br/>Physical Security<br/></td></tr><tr id="2292d152-1a61-43cc-91f2-2fb63f9b95f3"><td id="MLQN" class="" style="width:138px">Configuration of Basic Security Policy and Permissions</td><td id="P;cP" class="" style="width:245.5px">Guidelines for Configuring Security Policies and Permissions</td><td id="jIVi" class="" style="width:434px">User Authentication<br/>User Account Permissions<br/>Network Security<br/>Endpoint Security<br/>Data Backup and Recovery<br/>Software Updates and Patch Management<br/>Security Policies<br/>Physical Security<br/>Logging and Monitoring<br/>Incident Response Plan<br/>Encryption<br/>Vendor Security<br/>Regular Audits and Assessments<br/>Remote Access Security<br/>Security Awareness Training<br/>Legal and Compliance Considerations<br/>Regular Security Reviews<br/></td></tr><tr id="88a2b439-41ec-4b01-aa9e-f06b262f846a"><td id="MLQN" class="" style="width:138px">Cyber Safety Tips</td><td id="P;cP" class="" style="width:245.5px">Tips for Staying Safe Online</td><td id="jIVi" class="" style="width:434px">Software Updates<br/>Anti-Virus Protection &amp; Firewall<br/>Strong Passwords &amp; Password Management Tool<br/>Two-Factor or Multi-Factor Authentication<br/>Learn about Phishing Scams<br/>Use Your Mobile Devices Securely<br/>Backup Your Data Regularly<br/>Don&#x27;t Use Public Wi-Fi<br/></td></tr></tbody></table><p id="963bb5f2-a75f-4891-9196-e0777a8fc61b" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
